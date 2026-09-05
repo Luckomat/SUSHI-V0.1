@@ -1,0 +1,2644 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Sushi Life — restaurante japonês em Matozinhos, MG. Consulte o cardápio, faça seu pedido e confira localização e horários."
+    >
+
+    <title>Sushi Life | Matozinhos</title>
+
+    <style>
+        /* =========================================================
+           LCOM // SUSHI LIFE
+           OLLIM NOOB — V0.3
+
+           Arquivo único:
+           HTML + CSS + JS
+
+           Prioridades:
+           mobile > clareza > desejo > ação
+
+           V0.3:
+           - identidade tipográfica
+           - mapa interativo
+           - assinatura LCOM
+        ========================================================= */
+
+
+        /* =========================================================
+           FONTES // IDENTIDADE
+        ========================================================= */
+
+        @font-face {
+            font-family: "Sushi Life Display";
+
+            src:
+                url("assets/fonts/yiroka.woff2")
+                format("woff2");
+
+            font-style: normal;
+            font-weight: 400;
+
+            font-display: swap;
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+
+            background: #080808;
+            color: #ffffff;
+
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        img {
+            display: block;
+
+            width: 100%;
+            max-width: 100%;
+        }
+
+        button,
+        a {
+            color: inherit;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================================================
+           TOKENS
+        ========================================================= */
+
+        :root {
+            --black: #080808;
+            --black-soft: #111111;
+            --black-card: #161616;
+
+            --white: #ffffff;
+            --white-soft: #eeeeee;
+
+            --gray: #999999;
+            --gray-dark: #252525;
+
+            --red: #e21622;
+            --red-dark: #a80f18;
+
+            --container: 1180px;
+
+            --radius-sm: 14px;
+            --radius-md: 22px;
+            --radius-lg: 32px;
+
+            --border:
+                1px solid rgba(255, 255, 255, 0.10);
+
+            --ease:
+                cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+
+        /* =========================================================
+           ACESSIBILIDADE
+        ========================================================= */
+
+        .skip-link {
+            position: fixed;
+
+            top: 16px;
+            left: 16px;
+            z-index: 9999;
+
+            padding: 12px 16px;
+
+            border-radius: 999px;
+
+            background: var(--white);
+            color: var(--black);
+
+            font-weight: 800;
+
+            transform:
+                translateY(-200%);
+
+            transition:
+                transform 180ms ease;
+        }
+
+        .skip-link:focus {
+            transform:
+                translateY(0);
+        }
+
+        :focus-visible {
+            outline:
+                3px solid var(--white);
+
+            outline-offset: 4px;
+        }
+
+
+        /* =========================================================
+           UTILITÁRIOS
+        ========================================================= */
+
+        .container {
+            width:
+                min(
+                    calc(100% - 32px),
+                    var(--container)
+                );
+
+            margin-inline: auto;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 8px;
+
+            margin: 0 0 18px;
+
+            color: var(--red);
+
+            font-size: 0.78rem;
+            font-weight: 900;
+
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+
+            width: 24px;
+            height: 2px;
+
+            background:
+                currentColor;
+        }
+
+        .section-title {
+            max-width: 780px;
+
+            margin: 0;
+
+            font-size:
+                clamp(
+                    2.3rem,
+                    10vw,
+                    5.4rem
+                );
+
+            line-height: 0.92;
+            letter-spacing: -0.055em;
+
+            text-wrap: balance;
+        }
+
+        .section-copy {
+            max-width: 610px;
+
+            margin: 24px 0 0;
+
+            color: var(--gray);
+
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            min-height: 52px;
+
+            padding: 0 22px;
+
+            border:
+                1px solid transparent;
+
+            border-radius: 999px;
+
+            font-size: 0.92rem;
+            font-weight: 850;
+
+            transition:
+                transform 180ms var(--ease),
+                background-color 180ms ease,
+                border-color 180ms ease,
+                color 180ms ease;
+        }
+
+        .button:hover {
+            transform:
+                translateY(-2px);
+        }
+
+        .button--primary {
+            background:
+                var(--red);
+
+            color:
+                var(--white);
+        }
+
+        .button--primary:hover {
+            background:
+                #f31c29;
+        }
+
+        .button--ghost {
+            border-color:
+                rgba(255, 255, 255, 0.20);
+
+            background:
+                rgba(0, 0, 0, 0.18);
+
+            backdrop-filter:
+                blur(10px);
+        }
+
+        .button--ghost:hover {
+            border-color:
+                rgba(255, 255, 255, 0.45);
+
+            background:
+                rgba(255, 255, 255, 0.08);
+        }
+
+        .button__arrow {
+            font-size: 1.15em;
+            line-height: 1;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .site-header {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+            z-index: 1000;
+
+            width: 100%;
+
+            transition:
+                background-color 220ms ease,
+                border-color 220ms ease,
+                backdrop-filter 220ms ease;
+        }
+
+        .site-header.is-scrolled {
+            border-bottom:
+                1px solid rgba(255, 255, 255, 0.08);
+
+            background:
+                rgba(8, 8, 8, 0.82);
+
+            backdrop-filter:
+                blur(18px);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            min-height: 74px;
+        }
+
+        .brand {
+            position: relative;
+            z-index: 1002;
+
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .brand img {
+            width: 62px;
+            height: 62px;
+
+            object-fit: contain;
+        }
+
+        .menu-toggle {
+            position: relative;
+            z-index: 1002;
+
+            display: grid;
+            place-items: center;
+
+            gap: 5px;
+
+            width: 46px;
+            height: 46px;
+
+            padding: 0;
+
+            border: var(--border);
+            border-radius: 50%;
+
+            background:
+                rgba(0, 0, 0, 0.25);
+
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            display: block;
+
+            width: 18px;
+            height: 2px;
+
+            border-radius: 999px;
+
+            background:
+                var(--white);
+
+            transition:
+                transform 220ms ease,
+                opacity 220ms ease;
+        }
+
+        .menu-open
+        .menu-toggle
+        span:first-child {
+            transform:
+                translateY(3.5px)
+                rotate(45deg);
+        }
+
+        .menu-open
+        .menu-toggle
+        span:last-child {
+            transform:
+                translateY(-3.5px)
+                rotate(-45deg);
+        }
+
+        .nav {
+            position: fixed;
+
+            inset: 0;
+            z-index: 1001;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            padding:
+                96px 28px 40px;
+
+            background:
+                rgba(8, 8, 8, 0.97);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition:
+                opacity 220ms ease,
+                visibility 220ms ease;
+        }
+
+        .menu-open .nav {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+        .nav-link {
+            display: block;
+
+            padding: 8px 0;
+
+            color: var(--white);
+
+            font-size:
+                clamp(
+                    2rem,
+                    10vw,
+                    4rem
+                );
+
+            font-weight: 850;
+
+            letter-spacing:
+                -0.045em;
+        }
+
+        .nav-link span {
+            color:
+                var(--red);
+        }
+
+        .nav-action {
+            margin-top: 34px;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            position: relative;
+
+            display: flex;
+            align-items: flex-end;
+
+            min-height: 100svh;
+
+            overflow: hidden;
+
+            background: #090909;
+        }
+
+        .hero-media {
+            position: absolute;
+
+            inset: 0;
+        }
+
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            object-position:
+                53% center;
+
+            transform:
+                scale(1.025);
+        }
+
+        .hero-media::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.18) 0%,
+                    rgba(0, 0, 0, 0.12) 28%,
+                    rgba(0, 0, 0, 0.52) 62%,
+                    rgba(0, 0, 0, 0.95) 100%
+                );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+
+            padding-top: 130px;
+            padding-bottom: 44px;
+        }
+
+        .hero-location {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 8px;
+
+            margin-bottom: 20px;
+
+            font-size: 0.78rem;
+            font-weight: 800;
+
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .hero-location::before {
+            content: "";
+
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background:
+                var(--red);
+
+            box-shadow:
+                0 0 0 6px
+                rgba(226, 22, 34, 0.18);
+        }
+
+
+        /* =========================================================
+           HERO // IDENTIDADE TIPOGRÁFICA
+        ========================================================= */
+
+        .hero-title {
+            max-width: 1040px;
+
+            margin: 0;
+
+            font-family:
+                "Sushi Life Display",
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                sans-serif;
+
+            font-size:
+                clamp(
+                    3.7rem,
+                    16vw,
+                    9rem
+                );
+
+            font-weight: 400;
+
+            line-height: 0.82;
+            letter-spacing: -0.025em;
+
+            text-transform: uppercase;
+        }
+
+        .hero-title span {
+            display: block;
+
+            color:
+                var(--red);
+        }
+
+        .hero-bottom {
+            display: grid;
+
+            gap: 28px;
+
+            margin-top: 32px;
+        }
+
+        .hero-copy {
+            max-width: 460px;
+
+            margin: 0;
+
+            color:
+                rgba(255, 255, 255, 0.78);
+
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .scroll-hint {
+            display: none;
+        }
+
+
+        /* =========================================================
+           INTRO
+        ========================================================= */
+
+        .intro {
+            padding: 96px 0;
+        }
+
+        .intro-grid {
+            display: grid;
+
+            gap: 46px;
+        }
+
+        .intro-statements {
+            display: grid;
+
+            gap: 1px;
+
+            overflow: hidden;
+
+            border: var(--border);
+            border-radius:
+                var(--radius-md);
+
+            background:
+                rgba(255, 255, 255, 0.10);
+        }
+
+        .intro-statement {
+            padding: 24px;
+
+            background:
+                var(--black-soft);
+        }
+
+        .intro-statement strong {
+            display: block;
+
+            margin-bottom: 5px;
+
+            font-size: 1.12rem;
+        }
+
+        .intro-statement span {
+            color: var(--gray);
+
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+
+
+        /* =========================================================
+           FOOD SHOWCASE
+        ========================================================= */
+
+        .food-showcase {
+            padding-bottom: 96px;
+        }
+
+        .food-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 10px;
+
+            margin-top: 42px;
+        }
+
+        .food-card {
+            position: relative;
+
+            min-height: 230px;
+
+            overflow: hidden;
+
+            border-radius:
+                var(--radius-sm);
+
+            background:
+                var(--black-card);
+        }
+
+        .food-card:first-child {
+            grid-column: 1 / -1;
+
+            min-height: 420px;
+        }
+
+        .food-card:nth-child(4) {
+            grid-column: 1 / -1;
+
+            min-height: 320px;
+        }
+
+        .food-card img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform 650ms var(--ease);
+        }
+
+        .food-card:hover img {
+            transform:
+                scale(1.035);
+        }
+
+        .food-card::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.45),
+                    transparent 55%
+                );
+
+            pointer-events: none;
+        }
+
+
+        /* =========================================================
+           PROMOÇÕES
+        ========================================================= */
+
+        .offers {
+            padding: 96px 0;
+
+            background:
+                var(--white);
+
+            color:
+                var(--black);
+        }
+
+        .offers .eyebrow {
+            color:
+                var(--red);
+        }
+
+        .offers-header {
+            display: grid;
+
+            gap: 18px;
+        }
+
+        .offers-note {
+            max-width: 480px;
+
+            margin: 0;
+
+            color:
+                #626262;
+
+            line-height: 1.6;
+        }
+
+        .offers-grid {
+            display: grid;
+
+            gap: 12px;
+
+            margin-top: 44px;
+        }
+
+        .offer-card {
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+
+            min-height: 340px;
+
+            padding: 26px;
+
+            overflow: hidden;
+
+            border-radius:
+                var(--radius-md);
+
+            background:
+                #101010;
+
+            color:
+                var(--white);
+        }
+
+        .offer-card--featured {
+            background:
+                var(--red);
+        }
+
+        .offer-number {
+            position: absolute;
+
+            top: 20px;
+            right: 22px;
+
+            color:
+                rgba(255, 255, 255, 0.24);
+
+            font-size: 4rem;
+            font-weight: 950;
+
+            line-height: 1;
+            letter-spacing: -0.08em;
+        }
+
+        .offer-label {
+            position: relative;
+            z-index: 1;
+
+            margin: 0 0 24px;
+
+            font-size: 0.75rem;
+            font-weight: 900;
+
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .offer-card h3 {
+            position: relative;
+            z-index: 1;
+
+            max-width: 290px;
+
+            margin: 0;
+
+            font-size: 2.4rem;
+
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+        }
+
+        .offer-items {
+            position: relative;
+            z-index: 1;
+
+            margin: 20px 0 30px;
+
+            color:
+                rgba(255, 255, 255, 0.66);
+
+            font-size: 0.85rem;
+            line-height: 1.55;
+        }
+
+        .offer-card--featured
+        .offer-items {
+            color:
+                rgba(255, 255, 255, 0.78);
+        }
+
+        .offer-price {
+            position: relative;
+            z-index: 1;
+
+            margin-top: auto;
+
+            font-size: 2.6rem;
+            font-weight: 950;
+
+            line-height: 1;
+            letter-spacing: -0.055em;
+        }
+
+        .offer-price small {
+            font-size: 0.95rem;
+            font-weight: 650;
+
+            letter-spacing: 0;
+        }
+
+
+        /* =========================================================
+           EXPERIÊNCIA
+        ========================================================= */
+
+        .experience {
+            padding: 96px 0;
+        }
+
+        .experience-grid {
+            display: grid;
+
+            gap: 16px;
+
+            margin-top: 46px;
+        }
+
+        .experience-card {
+            position: relative;
+
+            min-height: 520px;
+
+            overflow: hidden;
+
+            border-radius:
+                var(--radius-lg);
+        }
+
+        .experience-card img {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .experience-card::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.92),
+                    rgba(0, 0, 0, 0.06) 62%
+                );
+        }
+
+        .experience-content {
+            position: absolute;
+            z-index: 2;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            padding: 28px;
+        }
+
+        .experience-content span {
+            display: block;
+
+            margin-bottom: 10px;
+
+            color:
+                var(--red);
+
+            font-size: 0.72rem;
+            font-weight: 900;
+
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .experience-content h3 {
+            max-width: 420px;
+
+            margin: 0;
+
+            font-size: 2.4rem;
+
+            line-height: 0.96;
+            letter-spacing: -0.045em;
+        }
+
+
+        /* =========================================================
+           MARQUEE / TRANSIÇÃO
+        ========================================================= */
+
+        .marquee {
+            overflow: hidden;
+
+            border-top:
+                1px solid rgba(255, 255, 255, 0.12);
+
+            border-bottom:
+                1px solid rgba(255, 255, 255, 0.12);
+
+            background:
+                var(--red);
+        }
+
+        .marquee-track {
+            display: flex;
+
+            width: max-content;
+
+            animation:
+                marquee 20s linear infinite;
+        }
+
+        .marquee-group {
+            display: flex;
+            align-items: center;
+
+            white-space: nowrap;
+        }
+
+        .marquee-item {
+            display: flex;
+            align-items: center;
+
+            gap: 28px;
+
+            padding: 23px 14px;
+
+            font-size: 1.1rem;
+            font-weight: 950;
+
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+        }
+
+        .marquee-item::after {
+            content: "●";
+
+            color:
+                var(--black);
+
+            font-size: 0.72rem;
+        }
+
+        @keyframes marquee {
+            to {
+                transform:
+                    translateX(-50%);
+            }
+        }
+
+
+        /* =========================================================
+           VISIT / CONVERSION
+        ========================================================= */
+
+        .visit {
+            padding: 96px 0 48px;
+        }
+
+        .visit-grid {
+            display: grid;
+
+            gap: 44px;
+        }
+
+        .visit-actions {
+            display: grid;
+
+            gap: 10px;
+
+            margin-top: 34px;
+        }
+
+        .visit-actions .button {
+            width: 100%;
+        }
+
+        .visit-info {
+            display: grid;
+
+            gap: 1px;
+
+            overflow: hidden;
+
+            border: var(--border);
+            border-radius:
+                var(--radius-md);
+
+            background:
+                rgba(255, 255, 255, 0.10);
+        }
+
+        .info-row {
+            padding: 22px;
+
+            background:
+                var(--black-soft);
+        }
+
+        .info-label {
+            margin: 0 0 8px;
+
+            color:
+                var(--red);
+
+            font-size: 0.72rem;
+            font-weight: 900;
+
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .info-value {
+            margin: 0;
+
+            color:
+                var(--white-soft);
+
+            font-size: 1rem;
+            line-height: 1.55;
+        }
+
+        .info-value a {
+            text-decoration: underline;
+
+            text-decoration-color:
+                rgba(255, 255, 255, 0.25);
+
+            text-underline-offset: 4px;
+        }
+
+
+        /* =========================================================
+           MAPA
+        ========================================================= */
+
+        .location-map {
+            position: relative;
+
+            margin-top: 44px;
+
+            overflow: hidden;
+
+            border: var(--border);
+            border-radius:
+                var(--radius-md);
+
+            background:
+                var(--black-soft);
+        }
+
+        .location-map::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+
+            pointer-events: none;
+
+            box-shadow:
+                inset 0 0 0 1px
+                rgba(255, 255, 255, 0.04);
+        }
+
+        .location-map iframe {
+            display: block;
+
+            width: 100%;
+            height: 360px;
+
+            border: 0;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .footer {
+            padding:
+                38px 0
+                calc(
+                    38px +
+                    env(safe-area-inset-bottom)
+                );
+
+            color:
+                var(--gray);
+
+            font-size: 0.82rem;
+            line-height: 1.6;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .footer-copyright {
+            color:
+                var(--gray);
+        }
+
+        .lcom-signature {
+            color:
+                var(--gray);
+        }
+
+        .lcom-signature a {
+            color:
+                var(--white);
+
+            font-weight: 800;
+
+            text-decoration:
+                underline;
+
+            text-decoration-color:
+                rgba(255, 255, 255, 0.20);
+
+            text-underline-offset:
+                4px;
+
+            transition:
+                color 180ms ease,
+                text-decoration-color 180ms ease;
+        }
+
+        .lcom-signature a:hover {
+            color:
+                var(--white);
+
+            text-decoration-color:
+                rgba(255, 255, 255, 0.70);
+        }
+
+
+        /* =========================================================
+           REVEAL
+        ========================================================= */
+
+        [data-reveal] {
+            opacity: 0;
+
+            transform:
+                translateY(24px);
+
+            transition:
+                opacity 700ms var(--ease),
+                transform 700ms var(--ease);
+        }
+
+        [data-reveal].is-visible {
+            opacity: 1;
+
+            transform: none;
+        }
+
+
+        /* =========================================================
+           TABLET / DESKTOP
+        ========================================================= */
+
+        @media (min-width: 760px) {
+            .container {
+                width:
+                    min(
+                        calc(100% - 64px),
+                        var(--container)
+                    );
+            }
+
+            .header-inner {
+                min-height: 88px;
+            }
+
+            .brand img {
+                width: 72px;
+                height: 72px;
+            }
+
+            .hero-content {
+                padding-bottom: 64px;
+            }
+
+            .hero-bottom {
+                grid-template-columns:
+                    minmax(0, 1fr)
+                    auto;
+
+                align-items: end;
+            }
+
+            .intro,
+            .offers,
+            .experience,
+            .visit {
+                padding-top: 130px;
+                padding-bottom: 130px;
+            }
+
+            .food-showcase {
+                padding-bottom: 130px;
+            }
+
+            .intro-grid {
+                grid-template-columns:
+                    minmax(0, 1.2fr)
+                    minmax(280px, 0.8fr);
+
+                align-items: end;
+            }
+
+            .food-grid {
+                grid-template-columns:
+                    repeat(12, 1fr);
+
+                grid-auto-rows: 210px;
+
+                gap: 14px;
+            }
+
+            .food-card,
+            .food-card:first-child,
+            .food-card:nth-child(4) {
+                min-height: 0;
+            }
+
+            .food-card:first-child {
+                grid-column: span 7;
+                grid-row: span 3;
+            }
+
+            .food-card:nth-child(2) {
+                grid-column: span 5;
+                grid-row: span 2;
+            }
+
+            .food-card:nth-child(3) {
+                grid-column: span 5;
+                grid-row: span 2;
+            }
+
+            .food-card:nth-child(4) {
+                grid-column: span 7;
+                grid-row: span 3;
+            }
+
+            .food-card:nth-child(5) {
+                grid-column: span 5;
+                grid-row: span 2;
+            }
+
+            .offers-header {
+                grid-template-columns:
+                    minmax(0, 1fr)
+                    430px;
+
+                align-items: end;
+            }
+
+            .offers-grid {
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+            .offer-card {
+                min-height: 440px;
+            }
+
+            .experience-grid {
+                grid-template-columns:
+                    1.1fr
+                    0.9fr;
+
+                align-items: stretch;
+            }
+
+            .experience-card:last-child {
+                margin-top: 120px;
+            }
+
+            .visit-grid {
+                grid-template-columns:
+                    minmax(0, 1.1fr)
+                    minmax(340px, 0.9fr);
+
+                align-items: start;
+            }
+
+            .visit-actions {
+                grid-template-columns:
+                    repeat(
+                        2,
+                        max-content
+                    );
+            }
+
+            .visit-actions .button {
+                width: auto;
+            }
+
+            .location-map {
+                margin-top: 64px;
+            }
+
+            .location-map iframe {
+                height: 480px;
+            }
+
+            .footer-inner {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+
+                gap: 24px;
+            }
+
+            .lcom-signature {
+                text-align: right;
+            }
+        }
+
+
+        @media (min-width: 980px) {
+            .menu-toggle {
+                display: none;
+            }
+
+            .nav {
+                position: static;
+
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                padding: 0;
+
+                background: transparent;
+
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links {
+                flex-direction: row;
+                align-items: center;
+
+                gap: 30px;
+            }
+
+            .nav-link {
+                position: relative;
+
+                padding: 12px 0;
+
+                color:
+                    rgba(255, 255, 255, 0.78);
+
+                font-size: 0.84rem;
+                font-weight: 750;
+
+                letter-spacing: 0;
+            }
+
+            .nav-link::after {
+                content: "";
+
+                position: absolute;
+
+                left: 0;
+                bottom: 6px;
+
+                width: 100%;
+                height: 2px;
+
+                background:
+                    var(--red);
+
+                transform:
+                    scaleX(0);
+
+                transform-origin:
+                    right;
+
+                transition:
+                    transform 220ms var(--ease);
+            }
+
+            .nav-link:hover::after {
+                transform:
+                    scaleX(1);
+
+                transform-origin:
+                    left;
+            }
+
+            .nav-action {
+                margin:
+                    0 0 0 28px;
+            }
+
+            .nav-action .button {
+                min-height: 46px;
+
+                padding-inline: 20px;
+            }
+
+            .hero-media img {
+                object-position:
+                    center 47%;
+            }
+
+            .hero-content {
+                padding-bottom: 74px;
+            }
+
+            .scroll-hint {
+                position: absolute;
+
+                right: 34px;
+                bottom: 78px;
+                z-index: 2;
+
+                display: flex;
+                align-items: center;
+
+                gap: 12px;
+
+                color:
+                    rgba(255, 255, 255, 0.48);
+
+                font-size: 0.72rem;
+                font-weight: 750;
+
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+
+                writing-mode:
+                    vertical-rl;
+            }
+
+            .scroll-hint::after {
+                content: "";
+
+                width: 1px;
+                height: 58px;
+
+                background:
+                    rgba(255, 255, 255, 0.35);
+            }
+
+            .experience-card {
+                min-height: 720px;
+            }
+        }
+
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
+        @media (
+            prefers-reduced-motion: reduce
+        ) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+
+                scroll-behavior:
+                    auto !important;
+            }
+
+            [data-reveal] {
+                opacity: 1;
+
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a
+        class="skip-link"
+        href="#conteudo"
+    >
+        Ir para o conteúdo
+    </a>
+
+
+    <!-- =======================================================
+         HEADER
+    ======================================================== -->
+
+    <header
+        class="site-header"
+        id="site-header"
+    >
+        <div class="container header-inner">
+            <a
+                class="brand"
+                href="#inicio"
+                aria-label="Sushi Life - início"
+            >
+                <img
+                    src="assets/logo.webp"
+                    alt="Sushi Life"
+                    width="500"
+                    height="500"
+                >
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                type="button"
+                aria-label="Abrir menu"
+                aria-controls="navigation"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav
+                class="nav"
+                id="navigation"
+                aria-label="Navegação principal"
+            >
+                <div class="nav-links">
+                    <a
+                        class="nav-link"
+                        href="#sushi-life"
+                    >
+                        Sushi Life<span>.</span>
+                    </a>
+
+                    <a
+                        class="nav-link"
+                        href="#destaques"
+                    >
+                        Destaques<span>.</span>
+                    </a>
+
+                    <a
+                        class="nav-link"
+                        href="#visite"
+                    >
+                        Visite<span>.</span>
+                    </a>
+                </div>
+
+                <div class="nav-action">
+                    <a
+                        class="button button--primary"
+                        href="https://pedido.anota.ai/loja/sushilife-1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Ver cardápio
+
+                        <span
+                            class="button__arrow"
+                            aria-hidden="true"
+                        >
+                            ↗
+                        </span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <main id="conteudo">
+
+        <!-- ===================================================
+             HERO
+        ==================================================== -->
+
+        <section
+            class="hero"
+            id="inicio"
+        >
+            <div class="hero-media">
+                <img
+                    src="assets/sushi.webp"
+                    alt="Peças de sushi do Sushi Life"
+                    width="3072"
+                    height="4096"
+                    fetchpriority="high"
+                >
+            </div>
+
+            <div class="container hero-content">
+                <div class="hero-location">
+                    Matozinhos · MG
+                </div>
+
+                <h1 class="hero-title">
+                    Sushi
+
+                    <span>
+                        Life.
+                    </span>
+                </h1>
+
+                <div class="hero-bottom">
+                    <p class="hero-copy">
+                        Restaurante japonês em Matozinhos.
+                        Consuma no local ou faça seu pedido online.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a
+                            class="button button--primary"
+                            href="https://pedido.anota.ai/loja/sushilife-1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Ver cardápio
+
+                            <span
+                                class="button__arrow"
+                                aria-hidden="true"
+                            >
+                                ↗
+                            </span>
+                        </a>
+
+                        <a
+                            class="button button--ghost"
+                            href="#visite"
+                        >
+                            Como chegar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="scroll-hint"
+                aria-hidden="true"
+            >
+                Explore
+            </div>
+        </section>
+
+
+        <!-- ===================================================
+             CONTEXTO
+        ==================================================== -->
+
+        <section
+            class="intro"
+            id="sushi-life"
+        >
+            <div class="container intro-grid">
+                <div data-reveal>
+                    <p class="eyebrow">
+                        Sushi Life
+                    </p>
+
+                    <h2 class="section-title">
+                        Japonês no salão.
+                        Japonês no delivery.
+                    </h2>
+
+                    <p class="section-copy">
+                        No restaurante, o cardápio também pode ser
+                        acessado digitalmente por QR Code. O pedido
+                        é feito online e o pagamento é realizado
+                        presencialmente.
+                    </p>
+                </div>
+
+                <div
+                    class="intro-statements"
+                    data-reveal
+                >
+                    <article class="intro-statement">
+                        <strong>
+                            Consumo no local
+                        </strong>
+
+                        <span>
+                            Restaurante em Matozinhos.
+                        </span>
+                    </article>
+
+                    <article class="intro-statement">
+                        <strong>
+                            Delivery
+                        </strong>
+
+                        <span>
+                            Pedidos online pelo sistema Anota AI.
+                        </span>
+                    </article>
+
+                    <article class="intro-statement">
+                        <strong>
+                            Sexta-feira
+                        </strong>
+
+                        <span>
+                            Rodízio especial das 18h às 23h.
+                        </span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================
+             PRODUTO
+        ==================================================== -->
+
+        <section
+            class="food-showcase"
+            id="destaques"
+        >
+            <div class="container">
+                <div data-reveal>
+                    <p class="eyebrow">
+                        Da casa
+                    </p>
+
+                    <h2 class="section-title">
+                        Primeiro você vê.
+                        Depois bate a fome.
+                    </h2>
+                </div>
+
+                <div class="food-grid">
+                    <figure
+                        class="food-card"
+                        data-reveal
+                    >
+                        <img
+                            src="assets/sushi4.webp"
+                            alt="Seleção de sushi do Sushi Life"
+                            width="988"
+                            height="988"
+                            loading="lazy"
+                        >
+                    </figure>
+
+                    <figure
+                        class="food-card"
+                        data-reveal
+                    >
+                        <img
+                            src="assets/sushi2.webp"
+                            alt="Peças de sushi servidas no Sushi Life"
+                            width="3072"
+                            height="4096"
+                            loading="lazy"
+                        >
+                    </figure>
+
+                    <figure
+                        class="food-card"
+                        data-reveal
+                    >
+                        <img
+                            src="assets/sushi5.webp"
+                            alt="Peça de sushi segurada por hashis"
+                            width="1440"
+                            height="1460"
+                            loading="lazy"
+                        >
+                    </figure>
+
+                    <figure
+                        class="food-card"
+                        data-reveal
+                    >
+                        <img
+                            src="assets/sushi6.webp"
+                            alt="Sushi empanado servido no Sushi Life"
+                            width="1112"
+                            height="1159"
+                            loading="lazy"
+                        >
+                    </figure>
+
+                    <figure
+                        class="food-card"
+                        data-reveal
+                    >
+                        <img
+                            src="assets/copo_de_sushi.webp"
+                            alt="Sushi servido em copo no Sushi Life"
+                            width="720"
+                            height="1280"
+                            loading="lazy"
+                        >
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================
+             PROMOÇÕES
+        ==================================================== -->
+
+        <section class="offers">
+            <div class="container">
+                <div
+                    class="offers-header"
+                    data-reveal
+                >
+                    <div>
+                        <p class="eyebrow">
+                            Combos
+                        </p>
+
+                        <h2 class="section-title">
+                            Tem sushi para dividir.
+                            Ou não.
+                        </h2>
+                    </div>
+
+                    <p class="offers-note">
+                        Alguns dos combos e promoções encontrados
+                        no cardápio do Sushi Life.
+                    </p>
+                </div>
+
+                <div class="offers-grid">
+                    <article
+                        class="offer-card"
+                        data-reveal
+                    >
+                        <div
+                            class="offer-number"
+                            aria-hidden="true"
+                        >
+                            25
+                        </div>
+
+                        <p class="offer-label">
+                            Combo
+                        </p>
+
+                        <h3>
+                            25 peças
+                        </h3>
+
+                        <p class="offer-items">
+                            5 maki Philadelphia · 5 maki geleia ·
+                            5 maki tartar de salmão · 5 maki Doritos ·
+                            5 maki cubos de salmão
+                        </p>
+
+                        <div class="offer-price">
+                            <small>R$</small>
+                            44,90
+                        </div>
+                    </article>
+
+
+                    <article
+                        class="offer-card offer-card--featured"
+                        data-reveal
+                    >
+                        <div
+                            class="offer-number"
+                            aria-hidden="true"
+                        >
+                            TER
+                        </div>
+
+                        <p class="offer-label">
+                            Promoção de terça
+                        </p>
+
+                        <h3>
+                            Terça-feira
+                        </h3>
+
+                        <p class="offer-items">
+                            Maki geleia · maki Philadelphia ·
+                            maki tartar · maki cubo · niguiri ·
+                            temaki grelhado · hot
+                        </p>
+
+                        <div class="offer-price">
+                            <small>R$</small>
+                            54,90
+                        </div>
+                    </article>
+
+
+                    <article
+                        class="offer-card"
+                        data-reveal
+                    >
+                        <div
+                            class="offer-number"
+                            aria-hidden="true"
+                        >
+                            44
+                        </div>
+
+                        <p class="offer-label">
+                            Especial
+                        </p>
+
+                        <h3>
+                            Combo família
+                        </h3>
+
+                        <p class="offer-items">
+                            Joy geleia · maki kani · niguiri flambado ·
+                            hot Philadelphia · sashimi de salmão ·
+                            uramaki · hot Doritos · mini temaki
+                        </p>
+
+                        <div class="offer-price">
+                            <small>R$</small>
+                            139,90
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================
+             EXPERIÊNCIA
+        ==================================================== -->
+
+        <section class="experience">
+            <div class="container">
+                <div data-reveal>
+                    <p class="eyebrow">
+                        No Sushi Life
+                    </p>
+
+                    <h2 class="section-title">
+                        Não precisa terminar
+                        na tela do delivery.
+                    </h2>
+
+                    <p class="section-copy">
+                        O Sushi Life também recebe clientes
+                        presencialmente e realiza música ao vivo
+                        em datas especiais.
+                    </p>
+                </div>
+
+                <div class="experience-grid">
+                    <article
+                        class="experience-card"
+                        data-reveal
+                    >
+                        <img
+                            src="assets/vinho.webp"
+                            alt="Vinho sendo servido ao lado de sushi no Sushi Life"
+                            width="1123"
+                            height="1183"
+                            loading="lazy"
+                        >
+
+                        <div class="experience-content">
+                            <span>
+                                Presencial
+                            </span>
+
+                            <h3>
+                                Uma mesa também pode ser
+                                o destino.
+                            </h3>
+                        </div>
+                    </article>
+
+                    <article
+                        class="experience-card"
+                        data-reveal
+                    >
+                        <img
+                            src="assets/sushi3.webp"
+                            alt="Apresentação de sushi no Sushi Life"
+                            width="1421"
+                            height="1895"
+                            loading="lazy"
+                        >
+
+                        <div class="experience-content">
+                            <span>
+                                Sushi Life
+                            </span>
+
+                            <h3>
+                                Diferentes formas de servir.
+                            </h3>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================
+             MARQUEE
+        ==================================================== -->
+
+        <div
+            class="marquee"
+            aria-hidden="true"
+        >
+            <div class="marquee-track">
+                <div class="marquee-group">
+                    <div class="marquee-item">
+                        Sushi Life
+                    </div>
+
+                    <div class="marquee-item">
+                        Matozinhos
+                    </div>
+
+                    <div class="marquee-item">
+                        Restaurante
+                    </div>
+
+                    <div class="marquee-item">
+                        Delivery
+                    </div>
+
+                    <div class="marquee-item">
+                        Sushi Life
+                    </div>
+
+                    <div class="marquee-item">
+                        Matozinhos
+                    </div>
+
+                    <div class="marquee-item">
+                        Restaurante
+                    </div>
+
+                    <div class="marquee-item">
+                        Delivery
+                    </div>
+                </div>
+
+                <div class="marquee-group">
+                    <div class="marquee-item">
+                        Sushi Life
+                    </div>
+
+                    <div class="marquee-item">
+                        Matozinhos
+                    </div>
+
+                    <div class="marquee-item">
+                        Restaurante
+                    </div>
+
+                    <div class="marquee-item">
+                        Delivery
+                    </div>
+
+                    <div class="marquee-item">
+                        Sushi Life
+                    </div>
+
+                    <div class="marquee-item">
+                        Matozinhos
+                    </div>
+
+                    <div class="marquee-item">
+                        Restaurante
+                    </div>
+
+                    <div class="marquee-item">
+                        Delivery
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ===================================================
+             CONVERSÃO / LOCALIZAÇÃO
+        ==================================================== -->
+
+        <section
+            class="visit"
+            id="visite"
+        >
+            <div class="container visit-grid">
+                <div data-reveal>
+                    <p class="eyebrow">
+                        Agora é com você
+                    </p>
+
+                    <h2 class="section-title">
+                        Pedido ou mesa?
+                    </h2>
+
+                    <p class="section-copy">
+                        Consulte o cardápio online para fazer
+                        seu pedido ou veja como chegar ao Sushi Life
+                        em Matozinhos.
+                    </p>
+
+                    <div class="visit-actions">
+                        <a
+                            class="button button--primary"
+                            href="https://pedido.anota.ai/loja/sushilife-1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Abrir cardápio
+
+                            <span
+                                class="button__arrow"
+                                aria-hidden="true"
+                            >
+                                ↗
+                            </span>
+                        </a>
+
+                        <a
+                            class="button button--ghost"
+                            href="https://wa.me/5531996261385"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            WhatsApp
+
+                            <span
+                                class="button__arrow"
+                                aria-hidden="true"
+                            >
+                                ↗
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div
+                    class="visit-info"
+                    data-reveal
+                >
+                    <div class="info-row">
+                        <p class="info-label">
+                            Endereço
+                        </p>
+
+                        <p class="info-value">
+                            R. Oito de Dezembro, 50<br>
+                            Centro · Matozinhos · MG<br>
+                            35720-000
+                        </p>
+                    </div>
+
+                    <div class="info-row">
+                        <p class="info-label">
+                            Horário
+                        </p>
+
+                        <p class="info-value">
+                            Terça a domingo<br>
+                            18h às 23h
+                        </p>
+                    </div>
+
+                    <div class="info-row">
+                        <p class="info-label">
+                            Sexta-feira
+                        </p>
+
+                        <p class="info-value">
+                            Rodízio especial<br>
+                            18h às 23h
+                        </p>
+                    </div>
+
+                    <div class="info-row">
+                        <p class="info-label">
+                            Como chegar
+                        </p>
+
+                        <p class="info-value">
+                            <a
+                                href="https://maps.app.goo.gl/PBRpM8Y5ugVG3XjX6"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Abrir no Google Maps ↗
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="info-row">
+                        <p class="info-label">
+                            Instagram
+                        </p>
+
+                        <p class="info-value">
+                            <a
+                                href="https://www.instagram.com/sushi.lif"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                @sushi.lif ↗
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ===============================================
+                 MAPA
+            ================================================ -->
+
+            <div
+                class="container location-map"
+                data-reveal
+            >
+                <iframe
+                    src="https://www.google.com/maps?q=R.%20Oito%20de%20Dezembro%2C%2050%2C%20Centro%2C%20Matozinhos%2C%20MG%2C%2035720-000&output=embed"
+                    title="Localização do Sushi Life em Matozinhos"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- =======================================================
+         FOOTER // ASSINATURA LCOM
+    ======================================================== -->
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p class="footer-copyright">
+                © <span id="year"></span> Sushi Life.
+                Todos os direitos reservados.
+            </p>
+
+            <p class="lcom-signature">
+                Feito com carinho e shoyu por
+
+                <a
+                    href="https://lcom-it.com.br"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visitar o site da LCOM"
+                >
+                    LCOM ↗
+                </a>
+            </p>
+        </div>
+    </footer>
+
+
+    <script>
+        /* =====================================================
+           OLLIM NOOB — JS
+
+           Apenas comportamento necessário para a V0.3:
+           - menu mobile
+           - header no scroll
+           - reveals
+           - ano automático
+        ====================================================== */
+
+
+        /* =====================================================
+           ELEMENTOS
+        ====================================================== */
+
+        const body =
+            document.body;
+
+        const header =
+            document.querySelector(
+                "#site-header"
+            );
+
+        const menuToggle =
+            document.querySelector(
+                "#menu-toggle"
+            );
+
+        const navigation =
+            document.querySelector(
+                "#navigation"
+            );
+
+        const navLinks =
+            navigation.querySelectorAll(
+                "a"
+            );
+
+        const revealElements =
+            document.querySelectorAll(
+                "[data-reveal]"
+            );
+
+        const year =
+            document.querySelector(
+                "#year"
+            );
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        if (year) {
+            year.textContent =
+                new Date().getFullYear();
+        }
+
+
+        /* =====================================================
+           HEADER NO SCROLL
+        ====================================================== */
+
+        const updateHeader = () => {
+            const isScrolled =
+                window.scrollY > 18;
+
+            header.classList.toggle(
+                "is-scrolled",
+                isScrolled
+            );
+        };
+
+        updateHeader();
+
+        window.addEventListener(
+            "scroll",
+            updateHeader,
+            {
+                passive: true
+            }
+        );
+
+
+        /* =====================================================
+           MENU MOBILE
+        ====================================================== */
+
+        const setMenuState = (open) => {
+            body.classList.toggle(
+                "menu-open",
+                open
+            );
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(open)
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                open
+                    ? "Fechar menu"
+                    : "Abrir menu"
+            );
+        };
+
+        menuToggle.addEventListener(
+            "click",
+            () => {
+                const menuIsOpen =
+                    body.classList.contains(
+                        "menu-open"
+                    );
+
+                setMenuState(
+                    !menuIsOpen
+                );
+            }
+        );
+
+        navLinks.forEach(
+            (link) => {
+                link.addEventListener(
+                    "click",
+                    () => {
+                        setMenuState(false);
+                    }
+                );
+            }
+        );
+
+        document.addEventListener(
+            "keydown",
+            (event) => {
+                if (
+                    event.key === "Escape"
+                ) {
+                    setMenuState(false);
+                }
+            }
+        );
+
+
+        /* =====================================================
+           REVEALS
+        ====================================================== */
+
+        const reducedMotion =
+            window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches;
+
+        if (
+            reducedMotion ||
+            !(
+                "IntersectionObserver"
+                in window
+            )
+        ) {
+            revealElements.forEach(
+                (element) => {
+                    element.classList.add(
+                        "is-visible"
+                    );
+                }
+            );
+        } else {
+            const revealObserver =
+                new IntersectionObserver(
+                    (entries, observer) => {
+                        entries.forEach(
+                            (entry) => {
+                                if (
+                                    !entry.isIntersecting
+                                ) {
+                                    return;
+                                }
+
+                                entry.target.classList.add(
+                                    "is-visible"
+                                );
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+                            }
+                        );
+                    },
+                    {
+                        threshold: 0.14,
+
+                        rootMargin:
+                            "0px 0px -40px 0px"
+                    }
+                );
+
+            revealElements.forEach(
+                (element) => {
+                    revealObserver.observe(
+                        element
+                    );
+                }
+            );
+        }
+    </script>
+</body>
+</html>
