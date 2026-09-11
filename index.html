@@ -15,40 +15,29 @@
 
     <title>Sushi Life | Matozinhos</title>
 
+    <!-- =======================================================
+         FONTE // IDENTIDADE
+         Reggae One — fonte oficial do hero / Google Fonts / SIL Open Font License 1.1
+    ======================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Reggae+One&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
         /* =========================================================
            LCOM // SUSHI LIFE
-           OLLIM NOOB — V0.3
+           SUSHI LIFE — V0.1
 
            Arquivo único:
            HTML + CSS + JS
 
            Prioridades:
            mobile > clareza > desejo > ação
-
-           V0.3:
-           - identidade tipográfica
-           - mapa interativo
-           - assinatura LCOM
         ========================================================= */
-
-
-        /* =========================================================
-           FONTES // IDENTIDADE
-        ========================================================= */
-
-        @font-face {
-            font-family: "Sushi Life Display";
-
-            src:
-                url("assets/fonts/yiroka.woff2")
-                format("woff2");
-
-            font-style: normal;
-            font-weight: 400;
-
-            font-display: swap;
-        }
 
 
         /* =========================================================
@@ -67,7 +56,6 @@
 
         body {
             margin: 0;
-
             background: #080808;
             color: #ffffff;
 
@@ -90,7 +78,6 @@
 
         img {
             display: block;
-
             width: 100%;
             max-width: 100%;
         }
@@ -133,8 +120,7 @@
             --radius-md: 22px;
             --radius-lg: 32px;
 
-            --border:
-                1px solid rgba(255, 255, 255, 0.10);
+            --border: 1px solid rgba(255, 255, 255, 0.10);
 
             --ease:
                 cubic-bezier(0.16, 1, 0.3, 1);
@@ -147,13 +133,11 @@
 
         .skip-link {
             position: fixed;
-
             top: 16px;
             left: 16px;
             z-index: 9999;
 
             padding: 12px 16px;
-
             border-radius: 999px;
 
             background: var(--white);
@@ -161,22 +145,16 @@
 
             font-weight: 800;
 
-            transform:
-                translateY(-200%);
-
-            transition:
-                transform 180ms ease;
+            transform: translateY(-200%);
+            transition: transform 180ms ease;
         }
 
         .skip-link:focus {
-            transform:
-                translateY(0);
+            transform: translateY(0);
         }
 
         :focus-visible {
-            outline:
-                3px solid var(--white);
-
+            outline: 3px solid var(--white);
             outline-offset: 4px;
         }
 
@@ -186,11 +164,10 @@
         ========================================================= */
 
         .container {
-            width:
-                min(
-                    calc(100% - 32px),
-                    var(--container)
-                );
+            width: min(
+                calc(100% - 32px),
+                var(--container)
+            );
 
             margin-inline: auto;
         }
@@ -198,7 +175,6 @@
         .eyebrow {
             display: inline-flex;
             align-items: center;
-
             gap: 8px;
 
             margin: 0 0 18px;
@@ -218,8 +194,7 @@
             width: 24px;
             height: 2px;
 
-            background:
-                currentColor;
+            background: currentColor;
         }
 
         .section-title {
@@ -227,12 +202,11 @@
 
             margin: 0;
 
-            font-size:
-                clamp(
-                    2.3rem,
-                    10vw,
-                    5.4rem
-                );
+            font-size: clamp(
+                2.3rem,
+                10vw,
+                5.4rem
+            );
 
             line-height: 0.92;
             letter-spacing: -0.055em;
@@ -255,16 +229,12 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-
             gap: 10px;
 
             min-height: 52px;
-
             padding: 0 22px;
 
-            border:
-                1px solid transparent;
-
+            border: 1px solid transparent;
             border-radius: 999px;
 
             font-size: 0.92rem;
@@ -278,40 +248,27 @@
         }
 
         .button:hover {
-            transform:
-                translateY(-2px);
+            transform: translateY(-2px);
         }
 
         .button--primary {
-            background:
-                var(--red);
-
-            color:
-                var(--white);
+            background: var(--red);
+            color: var(--white);
         }
 
         .button--primary:hover {
-            background:
-                #f31c29;
+            background: #f31c29;
         }
 
         .button--ghost {
-            border-color:
-                rgba(255, 255, 255, 0.20);
-
-            background:
-                rgba(0, 0, 0, 0.18);
-
-            backdrop-filter:
-                blur(10px);
+            border-color: rgba(255, 255, 255, 0.20);
+            background: rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(10px);
         }
 
         .button--ghost:hover {
-            border-color:
-                rgba(255, 255, 255, 0.45);
-
-            background:
-                rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.45);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .button__arrow {
@@ -326,7 +283,6 @@
 
         .site-header {
             position: fixed;
-
             top: 0;
             left: 0;
             z-index: 1000;
@@ -346,8 +302,8 @@
             background:
                 rgba(8, 8, 8, 0.82);
 
-            backdrop-filter:
-                blur(18px);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
         }
 
         .header-inner {
@@ -359,11 +315,11 @@
         }
 
         .brand {
-            position: relative;
-            z-index: 1002;
-
             display: inline-flex;
             align-items: center;
+
+            position: relative;
+            z-index: 1002;
         }
 
         .brand img {
@@ -379,7 +335,6 @@
 
             display: grid;
             place-items: center;
-
             gap: 5px;
 
             width: 46px;
@@ -390,8 +345,7 @@
             border: var(--border);
             border-radius: 50%;
 
-            background:
-                rgba(0, 0, 0, 0.25);
+            background: rgba(0, 0, 0, 0.25);
 
             cursor: pointer;
         }
@@ -404,25 +358,20 @@
 
             border-radius: 999px;
 
-            background:
-                var(--white);
+            background: var(--white);
 
             transition:
                 transform 220ms ease,
                 opacity 220ms ease;
         }
 
-        .menu-open
-        .menu-toggle
-        span:first-child {
+        .menu-open .menu-toggle span:first-child {
             transform:
                 translateY(3.5px)
                 rotate(45deg);
         }
 
-        .menu-open
-        .menu-toggle
-        span:last-child {
+        .menu-open .menu-toggle span:last-child {
             transform:
                 translateY(-3.5px)
                 rotate(-45deg);
@@ -430,7 +379,6 @@
 
         .nav {
             position: fixed;
-
             inset: 0;
             z-index: 1001;
 
@@ -438,11 +386,29 @@
             flex-direction: column;
             justify-content: center;
 
-            padding:
-                96px 28px 40px;
+            min-height: 100svh;
 
+            padding:
+                max(96px, env(safe-area-inset-top))
+                28px
+                max(40px, env(safe-area-inset-bottom));
+
+            /*
+             * O fundo da página continua perceptível,
+             * mas perde contraste, nitidez e protagonismo.
+             */
             background:
-                rgba(8, 8, 8, 0.97);
+                rgba(4, 4, 4, 0.82);
+
+            backdrop-filter:
+                blur(18px)
+                saturate(0.55)
+                brightness(0.42);
+
+            -webkit-backdrop-filter:
+                blur(18px)
+                saturate(0.55)
+                brightness(0.42);
 
             opacity: 0;
             visibility: hidden;
@@ -455,6 +421,34 @@
         .menu-open .nav {
             opacity: 1;
             visibility: visible;
+        }
+
+        /*
+         * Quando o menu está aberto ele se comporta como
+         * uma camada modal: o documento atrás não rola.
+         */
+        body.menu-open {
+            overflow: hidden;
+            overscroll-behavior: none;
+        }
+
+        .menu-open .site-header {
+            border-bottom-color: transparent;
+            background: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+
+        .menu-open .brand,
+        .menu-open .menu-toggle {
+            position: relative;
+            z-index: 1003;
+        }
+
+        .menu-open .nav-links,
+        .menu-open .nav-action {
+            position: relative;
+            z-index: 1002;
         }
 
         .nav-links {
@@ -471,22 +465,19 @@
 
             color: var(--white);
 
-            font-size:
-                clamp(
-                    2rem,
-                    10vw,
-                    4rem
-                );
+            font-size: clamp(
+                2rem,
+                10vw,
+                4rem
+            );
 
             font-weight: 850;
 
-            letter-spacing:
-                -0.045em;
+            letter-spacing: -0.045em;
         }
 
         .nav-link span {
-            color:
-                var(--red);
+            color: var(--red);
         }
 
         .nav-action {
@@ -513,7 +504,6 @@
 
         .hero-media {
             position: absolute;
-
             inset: 0;
         }
 
@@ -522,19 +512,15 @@
             height: 100%;
 
             object-fit: cover;
+            object-position: 53% center;
 
-            object-position:
-                53% center;
-
-            transform:
-                scale(1.025);
+            transform: scale(1.025);
         }
 
         .hero-media::after {
             content: "";
 
             position: absolute;
-
             inset: 0;
 
             background:
@@ -560,7 +546,6 @@
         .hero-location {
             display: inline-flex;
             align-items: center;
-
             gap: 8px;
 
             margin-bottom: 20px;
@@ -580,18 +565,12 @@
 
             border-radius: 50%;
 
-            background:
-                var(--red);
+            background: var(--red);
 
             box-shadow:
                 0 0 0 6px
                 rgba(226, 22, 34, 0.18);
         }
-
-
-        /* =========================================================
-           HERO // IDENTIDADE TIPOGRÁFICA
-        ========================================================= */
 
         .hero-title {
             max-width: 1040px;
@@ -599,37 +578,32 @@
             margin: 0;
 
             font-family:
-                "Sushi Life Display",
+                "Reggae One",
                 Inter,
                 ui-sans-serif,
                 system-ui,
                 sans-serif;
 
-            font-size:
-                clamp(
-                    3.7rem,
-                    16vw,
-                    9rem
-                );
+            font-size: clamp(
+                3.7rem,
+                16vw,
+                9rem
+            );
 
             font-weight: 400;
-
             line-height: 0.82;
             letter-spacing: -0.025em;
-
             text-transform: uppercase;
         }
 
         .hero-title span {
             display: block;
 
-            color:
-                var(--red);
+            color: var(--red);
         }
 
         .hero-bottom {
             display: grid;
-
             gap: 28px;
 
             margin-top: 32px;
@@ -640,8 +614,7 @@
 
             margin: 0;
 
-            color:
-                rgba(255, 255, 255, 0.78);
+            color: rgba(255, 255, 255, 0.78);
 
             font-size: 1rem;
             line-height: 1.6;
@@ -650,7 +623,6 @@
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-
             gap: 10px;
         }
 
@@ -669,20 +641,17 @@
 
         .intro-grid {
             display: grid;
-
             gap: 46px;
         }
 
         .intro-statements {
             display: grid;
-
             gap: 1px;
 
             overflow: hidden;
 
             border: var(--border);
-            border-radius:
-                var(--radius-md);
+            border-radius: var(--radius-md);
 
             background:
                 rgba(255, 255, 255, 0.10);
@@ -691,8 +660,7 @@
         .intro-statement {
             padding: 24px;
 
-            background:
-                var(--black-soft);
+            background: var(--black-soft);
         }
 
         .intro-statement strong {
@@ -721,10 +689,7 @@
 
         .food-grid {
             display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
+            grid-template-columns: 1fr 1fr;
             gap: 10px;
 
             margin-top: 42px;
@@ -737,11 +702,9 @@
 
             overflow: hidden;
 
-            border-radius:
-                var(--radius-sm);
+            border-radius: var(--radius-sm);
 
-            background:
-                var(--black-card);
+            background: var(--black-card);
         }
 
         .food-card:first-child {
@@ -767,15 +730,13 @@
         }
 
         .food-card:hover img {
-            transform:
-                scale(1.035);
+            transform: scale(1.035);
         }
 
         .food-card::after {
             content: "";
 
             position: absolute;
-
             inset: 0;
 
             background:
@@ -796,21 +757,16 @@
         .offers {
             padding: 96px 0;
 
-            background:
-                var(--white);
-
-            color:
-                var(--black);
+            background: var(--white);
+            color: var(--black);
         }
 
         .offers .eyebrow {
-            color:
-                var(--red);
+            color: var(--red);
         }
 
         .offers-header {
             display: grid;
-
             gap: 18px;
         }
 
@@ -819,15 +775,13 @@
 
             margin: 0;
 
-            color:
-                #626262;
+            color: #626262;
 
             line-height: 1.6;
         }
 
         .offers-grid {
             display: grid;
-
             gap: 12px;
 
             margin-top: 44px;
@@ -840,29 +794,22 @@
             flex-direction: column;
 
             min-height: 340px;
-
             padding: 26px;
 
             overflow: hidden;
 
-            border-radius:
-                var(--radius-md);
+            border-radius: var(--radius-md);
 
-            background:
-                #101010;
-
-            color:
-                var(--white);
+            background: #101010;
+            color: var(--white);
         }
 
         .offer-card--featured {
-            background:
-                var(--red);
+            background: var(--red);
         }
 
         .offer-number {
             position: absolute;
-
             top: 20px;
             right: 22px;
 
@@ -898,7 +845,6 @@
             margin: 0;
 
             font-size: 2.4rem;
-
             line-height: 0.95;
             letter-spacing: -0.05em;
         }
@@ -916,8 +862,7 @@
             line-height: 1.55;
         }
 
-        .offer-card--featured
-        .offer-items {
+        .offer-card--featured .offer-items {
             color:
                 rgba(255, 255, 255, 0.78);
         }
@@ -944,7 +889,7 @@
 
 
         /* =========================================================
-           EXPERIÊNCIA
+           EXPERIENCE
         ========================================================= */
 
         .experience {
@@ -953,7 +898,6 @@
 
         .experience-grid {
             display: grid;
-
             gap: 16px;
 
             margin-top: 46px;
@@ -966,13 +910,11 @@
 
             overflow: hidden;
 
-            border-radius:
-                var(--radius-lg);
+            border-radius: var(--radius-lg);
         }
 
         .experience-card img {
             position: absolute;
-
             inset: 0;
 
             width: 100%;
@@ -985,7 +927,6 @@
             content: "";
 
             position: absolute;
-
             inset: 0;
 
             background:
@@ -999,7 +940,6 @@
         .experience-content {
             position: absolute;
             z-index: 2;
-
             left: 0;
             right: 0;
             bottom: 0;
@@ -1012,8 +952,7 @@
 
             margin-bottom: 10px;
 
-            color:
-                var(--red);
+            color: var(--red);
 
             font-size: 0.72rem;
             font-weight: 900;
@@ -1028,9 +967,20 @@
             margin: 0;
 
             font-size: 2.4rem;
-
             line-height: 0.96;
             letter-spacing: -0.045em;
+        }
+
+        .experience-content p {
+            max-width: 450px;
+
+            margin:
+                16px 0 0;
+
+            color:
+                rgba(255, 255, 255, 0.70);
+
+            line-height: 1.6;
         }
 
 
@@ -1043,18 +993,18 @@
 
             border-top:
                 1px solid rgba(255, 255, 255, 0.12);
-
             border-bottom:
                 1px solid rgba(255, 255, 255, 0.12);
 
-            background:
-                var(--red);
+            background: var(--red);
         }
 
         .marquee-track {
             display: flex;
-
             width: max-content;
+
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
 
             animation:
                 marquee 20s linear infinite;
@@ -1070,10 +1020,10 @@
         .marquee-item {
             display: flex;
             align-items: center;
-
             gap: 28px;
 
-            padding: 23px 14px;
+            padding:
+                23px 14px;
 
             font-size: 1.1rem;
             font-weight: 950;
@@ -1085,16 +1035,14 @@
         .marquee-item::after {
             content: "●";
 
-            color:
-                var(--black);
+            color: var(--black);
 
             font-size: 0.72rem;
         }
 
         @keyframes marquee {
             to {
-                transform:
-                    translateX(-50%);
+                transform: translate3d(-50%, 0, 0);
             }
         }
 
@@ -1109,13 +1057,11 @@
 
         .visit-grid {
             display: grid;
-
             gap: 44px;
         }
 
         .visit-actions {
             display: grid;
-
             gap: 10px;
 
             margin-top: 34px;
@@ -1127,14 +1073,12 @@
 
         .visit-info {
             display: grid;
-
             gap: 1px;
 
             overflow: hidden;
 
             border: var(--border);
-            border-radius:
-                var(--radius-md);
+            border-radius: var(--radius-md);
 
             background:
                 rgba(255, 255, 255, 0.10);
@@ -1143,15 +1087,13 @@
         .info-row {
             padding: 22px;
 
-            background:
-                var(--black-soft);
+            background: var(--black-soft);
         }
 
         .info-label {
             margin: 0 0 8px;
 
-            color:
-                var(--red);
+            color: var(--red);
 
             font-size: 0.72rem;
             font-weight: 900;
@@ -1163,8 +1105,7 @@
         .info-value {
             margin: 0;
 
-            color:
-                var(--white-soft);
+            color: var(--white-soft);
 
             font-size: 1rem;
             line-height: 1.55;
@@ -1172,7 +1113,6 @@
 
         .info-value a {
             text-decoration: underline;
-
             text-decoration-color:
                 rgba(255, 255, 255, 0.25);
 
@@ -1186,28 +1126,19 @@
 
         .location-map {
             position: relative;
-
             margin-top: 44px;
-
             overflow: hidden;
-
             border: var(--border);
-            border-radius:
-                var(--radius-md);
-
-            background:
-                var(--black-soft);
+            border-radius: var(--radius-md);
+            background: var(--black-soft);
         }
 
         .location-map::before {
             content: "";
-
             position: absolute;
             inset: 0;
             z-index: 1;
-
             pointer-events: none;
-
             box-shadow:
                 inset 0 0 0 1px
                 rgba(255, 255, 255, 0.04);
@@ -1215,10 +1146,8 @@
 
         .location-map iframe {
             display: block;
-
             width: 100%;
             height: 360px;
-
             border: 0;
         }
 
@@ -1230,14 +1159,9 @@
         .footer {
             padding:
                 38px 0
-                calc(
-                    38px +
-                    env(safe-area-inset-bottom)
-                );
+                calc(38px + env(safe-area-inset-bottom));
 
-            color:
-                var(--gray);
-
+            color: var(--gray);
             font-size: 0.82rem;
             line-height: 1.6;
         }
@@ -1245,7 +1169,6 @@
         .footer-inner {
             display: flex;
             flex-direction: column;
-
             gap: 12px;
         }
 
@@ -1253,42 +1176,25 @@
             margin: 0;
         }
 
-        .footer-copyright {
-            color:
-                var(--gray);
-        }
-
+        .footer-copyright,
         .lcom-signature {
-            color:
-                var(--gray);
+            color: var(--gray);
         }
 
         .lcom-signature a {
-            color:
-                var(--white);
-
+            color: var(--white);
             font-weight: 800;
-
-            text-decoration:
-                underline;
-
-            text-decoration-color:
-                rgba(255, 255, 255, 0.20);
-
-            text-underline-offset:
-                4px;
-
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.20);
+            text-underline-offset: 4px;
             transition:
                 color 180ms ease,
                 text-decoration-color 180ms ease;
         }
 
         .lcom-signature a:hover {
-            color:
-                var(--white);
-
-            text-decoration-color:
-                rgba(255, 255, 255, 0.70);
+            color: var(--white);
+            text-decoration-color: rgba(255, 255, 255, 0.70);
         }
 
 
@@ -1309,7 +1215,6 @@
 
         [data-reveal].is-visible {
             opacity: 1;
-
             transform: none;
         }
 
@@ -1427,8 +1332,7 @@
 
             .experience-grid {
                 grid-template-columns:
-                    1.1fr
-                    0.9fr;
+                    1.1fr 0.9fr;
 
                 align-items: stretch;
             }
@@ -1447,10 +1351,7 @@
 
             .visit-actions {
                 grid-template-columns:
-                    repeat(
-                        2,
-                        max-content
-                    );
+                    repeat(2, max-content);
             }
 
             .visit-actions .button {
@@ -1469,7 +1370,6 @@
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-between;
-
                 gap: 24px;
             }
 
@@ -1484,19 +1384,46 @@
                 display: none;
             }
 
+            /*
+             * Desktop:
+             * o header permanece compacto e discreto.
+             *
+             * Zeramos explicitamente TODAS as propriedades modais
+             * herdadas do menu mobile para impedir que o nav
+             * ocupe a viewport inteira.
+             */
             .nav {
                 position: static;
+
+                inset: auto;
+                z-index: auto;
 
                 display: flex;
                 flex-direction: row;
                 align-items: center;
+                justify-content: flex-end;
+
+                width: auto;
+                min-height: 0;
 
                 padding: 0;
 
+                border: 0;
+                border-radius: 0;
+
                 background: transparent;
+
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+
+                box-shadow: none;
 
                 opacity: 1;
                 visibility: visible;
+
+                transform: none;
+
+                transition: none;
             }
 
             .nav-links {
@@ -1524,32 +1451,24 @@
                 content: "";
 
                 position: absolute;
-
                 left: 0;
                 bottom: 6px;
 
                 width: 100%;
                 height: 2px;
 
-                background:
-                    var(--red);
+                background: var(--red);
 
-                transform:
-                    scaleX(0);
-
-                transform-origin:
-                    right;
+                transform: scaleX(0);
+                transform-origin: right;
 
                 transition:
                     transform 220ms var(--ease);
             }
 
             .nav-link:hover::after {
-                transform:
-                    scaleX(1);
-
-                transform-origin:
-                    left;
+                transform: scaleX(1);
+                transform-origin: left;
             }
 
             .nav-action {
@@ -1559,29 +1478,29 @@
 
             .nav-action .button {
                 min-height: 46px;
-
                 padding-inline: 20px;
             }
 
             .hero-media img {
-                object-position:
-                    center 47%;
+                object-position: center 47%;
             }
 
             .hero-content {
                 padding-bottom: 74px;
             }
 
+            .hero-title {
+                max-width: 1040px;
+            }
+
             .scroll-hint {
                 position: absolute;
-
                 right: 34px;
                 bottom: 78px;
                 z-index: 2;
 
                 display: flex;
                 align-items: center;
-
                 gap: 12px;
 
                 color:
@@ -1593,8 +1512,7 @@
                 letter-spacing: 0.12em;
                 text-transform: uppercase;
 
-                writing-mode:
-                    vertical-rl;
+                writing-mode: vertical-rl;
             }
 
             .scroll-hint::after {
@@ -1614,8 +1532,561 @@
 
 
         /* =========================================================
+           TEXTURE BRUSH // EXPERIMENTO ATUAL
+
+           Um único canvas PixiJS cobre a viewport inteira:
+           - MeshRope = passada de pincel;
+           - Graphics = pigmentos / respingos.
+
+           Isso elimina diferenças de coordenadas entre dois canvases
+           e impede o pincel de ficar visualmente preso ao header.
+
+           O host é fixo à viewport e nunca participa do layout.
+        ========================================================= */
+
+        .brush-field {
+            position: fixed;
+            inset: 0;
+
+            /*
+             * O canvas continua preso à viewport por performance.
+             * Quem se move com o scroll é o "mundo" Pixi interno.
+             */
+            z-index: 9997;
+
+            width: 100vw;
+            height: 100dvh;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            /*
+             * Shoyu sumi-e:
+             * marrom profundo, pouco saturado e translúcido.
+             * Sem difference para preservar a tonalidade.
+             */
+            mix-blend-mode: normal;
+
+            contain: strict;
+            isolation: isolate;
+        }
+
+        .brush-field canvas {
+            position: absolute;
+            inset: 0;
+
+            display: block;
+
+            width: 100vw !important;
+            height: 100dvh !important;
+
+            pointer-events: none !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .brush-field {
+                display: none;
+            }
+        }
+
+
+
+        /* =========================================================
+           SUSHI CONSENT // PROTÓTIPO
+
+           Teste visual de um consentimento de cookies tematizado.
+           Nesta V0.1 ele NÃO carrega Google Analytics nem qualquer
+           script de rastreamento: apenas simula e salva a escolha
+           localmente para testar a experiência.
+        ========================================================= */
+
+        .sushi-consent {
+            position: fixed;
+            right: 18px;
+            bottom:
+                calc(
+                    18px +
+                    env(safe-area-inset-bottom)
+                );
+            z-index: 9996;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+
+            pointer-events: none;
+        }
+
+        .sushi-consent__panel {
+            width:
+                min(
+                    calc(100vw - 36px),
+                    390px
+                );
+
+            padding: 20px;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.14);
+
+            border-radius: 22px;
+
+            background:
+                rgba(12, 12, 12, 0.94);
+
+            box-shadow:
+                0 22px 70px
+                rgba(0, 0, 0, 0.42);
+
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform:
+                translateY(12px)
+                scale(0.98);
+
+            transform-origin:
+                right bottom;
+
+            transition:
+                opacity 220ms var(--ease),
+                visibility 220ms ease,
+                transform 220ms var(--ease);
+
+            pointer-events: auto;
+        }
+
+        .sushi-consent.is-open
+        .sushi-consent__panel {
+            opacity: 1;
+            visibility: visible;
+
+            transform:
+                translateY(0)
+                scale(1);
+        }
+
+        .sushi-consent__top {
+            display: grid;
+            grid-template-columns:
+                auto
+                minmax(0, 1fr);
+            gap: 14px;
+            align-items: center;
+        }
+
+        .sushi-consent__mini-bowl {
+            position: relative;
+
+            display: grid;
+            place-items: center;
+
+            width: 72px;
+            height: 58px;
+
+            flex: 0 0 auto;
+        }
+
+        .sushi-consent__sushi {
+            position: absolute;
+            top: 0;
+
+            display: flex;
+            gap: 0;
+
+            font-size: 24px;
+            line-height: 1;
+
+            filter:
+                drop-shadow(
+                    0 4px 5px
+                    rgba(0, 0, 0, 0.28)
+                );
+
+            transform:
+                rotate(-3deg);
+        }
+
+        .sushi-consent__bowl-shape {
+            position: absolute;
+            left: 50%;
+            bottom: 2px;
+
+            width: 66px;
+            height: 31px;
+
+            border:
+                2px solid
+                rgba(255, 255, 255, 0.86);
+
+            border-top: 0;
+
+            border-radius:
+                0 0 34px 34px;
+
+            transform:
+                translateX(-50%);
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(226, 22, 34, 0.22),
+                    rgba(226, 22, 34, 0.05)
+                );
+        }
+
+        .sushi-consent__bowl-shape::after {
+            content: "";
+
+            position: absolute;
+            left: 50%;
+            bottom: -7px;
+
+            width: 28px;
+            height: 6px;
+
+            border-radius: 999px;
+
+            background:
+                rgba(255, 255, 255, 0.82);
+
+            transform:
+                translateX(-50%);
+        }
+
+        .sushi-consent__eyebrow {
+            margin: 0 0 5px;
+
+            color: var(--red);
+
+            font-size: 0.69rem;
+            font-weight: 900;
+
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .sushi-consent__title {
+            margin: 0;
+
+            color: var(--white);
+
+            font-size: 1.22rem;
+            line-height: 1.05;
+            letter-spacing: -0.025em;
+        }
+
+        .sushi-consent__copy {
+            margin:
+                16px 0 0;
+
+            color:
+                rgba(255, 255, 255, 0.68);
+
+            font-size: 0.87rem;
+            line-height: 1.55;
+        }
+
+        .sushi-consent__demo {
+            margin:
+                10px 0 0;
+
+            color:
+                rgba(255, 255, 255, 0.40);
+
+            font-size: 0.72rem;
+            line-height: 1.45;
+        }
+
+        .sushi-consent__actions {
+            display: grid;
+            grid-template-columns:
+                1fr
+                1fr;
+            gap: 8px;
+
+            margin-top: 18px;
+        }
+
+        .sushi-consent__button {
+            min-height: 46px;
+            padding: 0 14px;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.14);
+
+            border-radius: 999px;
+
+            background:
+                rgba(255, 255, 255, 0.06);
+
+            color: var(--white);
+
+            font: inherit;
+            font-size: 0.8rem;
+            font-weight: 850;
+
+            cursor: pointer;
+
+            transition:
+                transform 180ms var(--ease),
+                background-color 180ms ease,
+                border-color 180ms ease;
+        }
+
+        .sushi-consent__button:hover {
+            transform:
+                translateY(-1px);
+
+            border-color:
+                rgba(255, 255, 255, 0.30);
+
+            background:
+                rgba(255, 255, 255, 0.10);
+        }
+
+        .sushi-consent__button--accept {
+            border-color:
+                transparent;
+
+            background:
+                var(--red);
+        }
+
+        .sushi-consent__button--accept:hover {
+            background:
+                #f31c29;
+        }
+
+        .sushi-consent__trigger {
+            position: relative;
+
+            display: grid;
+            place-items: center;
+
+            width: 64px;
+            height: 64px;
+
+            padding: 0;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.16);
+
+            border-radius: 50%;
+
+            background:
+                rgba(12, 12, 12, 0.90);
+
+            box-shadow:
+                0 14px 36px
+                rgba(0, 0, 0, 0.34);
+
+            backdrop-filter:
+                blur(14px);
+
+            -webkit-backdrop-filter:
+                blur(14px);
+
+            cursor: pointer;
+
+            pointer-events: auto;
+
+            transition:
+                transform 180ms var(--ease),
+                border-color 180ms ease,
+                background-color 180ms ease;
+        }
+
+        .sushi-consent__trigger:hover {
+            transform:
+                translateY(-2px)
+                rotate(-2deg);
+
+            border-color:
+                rgba(255, 255, 255, 0.30);
+
+            background:
+                rgba(20, 20, 20, 0.96);
+        }
+
+        .sushi-consent__trigger-sushi {
+            position: absolute;
+            top: 8px;
+
+            font-size: 24px;
+            line-height: 1;
+
+            transform:
+                rotate(4deg);
+        }
+
+        .sushi-consent__trigger-bowl {
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+
+            width: 44px;
+            height: 23px;
+
+            border:
+                2px solid
+                rgba(255, 255, 255, 0.90);
+
+            border-top: 0;
+
+            border-radius:
+                0 0 24px 24px;
+
+            transform:
+                translateX(-50%);
+
+            background:
+                rgba(226, 22, 34, 0.14);
+        }
+
+        .sushi-consent__trigger-dot {
+            position: absolute;
+            right: 2px;
+            top: 2px;
+
+            width: 11px;
+            height: 11px;
+
+            border:
+                2px solid
+                #101010;
+
+            border-radius: 50%;
+
+            background:
+                var(--red);
+
+            opacity: 0;
+
+            transform:
+                scale(0.6);
+
+            transition:
+                opacity 180ms ease,
+                transform 180ms var(--ease);
+        }
+
+        .sushi-consent:not(.has-choice)
+        .sushi-consent__trigger-dot {
+            opacity: 1;
+
+            transform:
+                scale(1);
+        }
+
+        @media (max-width: 520px) {
+            .sushi-consent {
+                right: 12px;
+                bottom:
+                    calc(
+                        12px +
+                        env(safe-area-inset-bottom)
+                    );
+            }
+
+            .sushi-consent__panel {
+                width:
+                    calc(100vw - 24px);
+
+                padding: 18px;
+            }
+
+            .sushi-consent__actions {
+                grid-template-columns: 1fr;
+            }
+
+            .sushi-consent__trigger {
+                width: 58px;
+                height: 58px;
+            }
+        }
+
+
+        /* =========================================================
            REDUCED MOTION
         ========================================================= */
+
+
+        /* =====================================================
+           EMOJI CURSOR // DESKTOP
+
+           Protótipo:
+           troque --cursor-emoji no JS para testar 🥢 ou 🍣.
+
+           No touch ele não aparece, porque o dedo já é o cursor.
+        ====================================================== */
+
+        #emoji-cursor {
+            position: fixed;
+            left: 0;
+            top: 0;
+
+            z-index: 10000;
+
+            display: grid;
+            place-items: center;
+
+            width: 48px;
+            height: 48px;
+
+            pointer-events: none;
+
+            opacity: 0;
+
+            font-size: 34px;
+            line-height: 1;
+
+            transform:
+                translate3d(
+                    -999px,
+                    -999px,
+                    0
+                )
+                translate(-50%, -50%);
+
+            transition:
+                opacity 90ms ease;
+
+            will-change:
+                transform;
+        }
+
+        #emoji-cursor.is-visible {
+            opacity: 1;
+        }
+
+        @media (pointer: fine) {
+            html,
+            body,
+            a,
+            button,
+            [role="button"] {
+                cursor: none !important;
+            }
+        }
+
+        @media (pointer: coarse) {
+            #emoji-cursor {
+                display: none;
+            }
+        }
+
 
         @media (
             prefers-reduced-motion: reduce
@@ -1624,32 +2095,165 @@
                 scroll-behavior: auto;
             }
 
-            *,
-            *::before,
-            *::after {
-                animation-duration:
-                    0.01ms !important;
-
-                animation-iteration-count:
-                    1 !important;
-
-                transition-duration:
-                    0.01ms !important;
-
-                scroll-behavior:
-                    auto !important;
-            }
-
             [data-reveal] {
                 opacity: 1;
+                transform: none;
+                transition: none;
+            }
 
+            .food-card img,
+            .button,
+            .nav-link::after,
+            .site-header,
+            .menu-toggle span {
+                transition: none;
+            }
+
+            .marquee-track {
+                animation: none;
                 transform: none;
             }
+
         }
     </style>
 </head>
 
 <body>
+    <!--
+        =========================================================
+        SUSHI LIFE — V0.1
+
+        Status:
+        - primeiro esboço funcional;
+        - ainda não apresentado/validado pelo cliente;
+        - Reggae One definida para o hero;
+        - header desktop compacto e persistente;
+        - menu hamburger ganha prioridade somente quando acionado;
+        - experimento atual: cursor emoji + LCOM Brush Effect sumi-e.
+        =========================================================
+    -->
+
+    <div
+        class="brush-field"
+        id="brush-field"
+        aria-hidden="true"
+    ></div>
+
+    <div
+        id="emoji-cursor"
+        aria-hidden="true"
+    >
+        🥢
+    </div>
+
+
+
+    <!-- =======================================================
+         SUSHI CONSENT // PROTÓTIPO DE COOKIES
+    ======================================================== -->
+
+    <aside
+        class="sushi-consent"
+        id="sushi-consent"
+        aria-label="Preferências de cookies"
+    >
+        <div
+            class="sushi-consent__panel"
+            id="sushi-consent-panel"
+            role="dialog"
+            aria-modal="false"
+            aria-labelledby="sushi-consent-title"
+            aria-describedby="sushi-consent-copy"
+        >
+            <div class="sushi-consent__top">
+                <div
+                    class="sushi-consent__mini-bowl"
+                    aria-hidden="true"
+                >
+                    <div class="sushi-consent__sushi">
+                        🍣 🍣
+                    </div>
+
+                    <span
+                        class="sushi-consent__bowl-shape"
+                    ></span>
+                </div>
+
+                <div>
+                    <p class="sushi-consent__eyebrow">
+                        Preferências
+                    </p>
+
+                    <h2
+                        class="sushi-consent__title"
+                        id="sushi-consent-title"
+                    >
+                        Aceita um sushi?
+                    </h2>
+                </div>
+            </div>
+
+            <p
+                class="sushi-consent__copy"
+                id="sushi-consent-copy"
+            >
+                Cookies opcionais podem ser usados para entender
+                como o site é navegado e ajudar a melhorar
+                a experiência.
+            </p>
+
+            <p class="sushi-consent__demo">
+                Protótipo interno: esta V0.1 não carrega Analytics.
+                A escolha abaixo testa apenas a interface.
+            </p>
+
+            <div class="sushi-consent__actions">
+                <button
+                    class="sushi-consent__button sushi-consent__button--accept"
+                    id="sushi-consent-accept"
+                    type="button"
+                >
+                    Aceitar sushi 🍣
+                </button>
+
+                <button
+                    class="sushi-consent__button"
+                    id="sushi-consent-essential"
+                    type="button"
+                >
+                    Só essenciais
+                </button>
+            </div>
+        </div>
+
+        <button
+            class="sushi-consent__trigger"
+            id="sushi-consent-trigger"
+            type="button"
+            aria-label="Abrir preferências de cookies"
+            aria-expanded="false"
+            aria-controls="sushi-consent-panel"
+        >
+            <span
+                class="sushi-consent__trigger-sushi"
+                aria-hidden="true"
+            >
+                🍣
+            </span>
+
+            <span
+                class="sushi-consent__trigger-bowl"
+                aria-hidden="true"
+            ></span>
+
+            <span
+                class="sushi-consent__trigger-dot"
+                aria-hidden="true"
+            ></span>
+        </button>
+    </aside>
+
+
     <a
         class="skip-link"
         href="#conteudo"
@@ -1778,7 +2382,7 @@
                 <div class="hero-bottom">
                     <p class="hero-copy">
                         Restaurante japonês em Matozinhos.
-                        Consuma no local ou faça seu pedido online.
+                        Aproveite no local ou faça seu pedido online.
                     </p>
 
                     <div class="hero-actions">
@@ -1897,8 +2501,8 @@
                     </p>
 
                     <h2 class="section-title">
-                        Primeiro você vê.
-                        Depois bate a fome.
+                        Sushi que chama atenção
+                        antes da primeira mordida.
                     </h2>
                 </div>
 
@@ -1988,8 +2592,8 @@
                         </p>
 
                         <h2 class="section-title">
-                            Tem sushi para dividir.
-                            Ou não.
+                            Combos para diferentes
+                            momentos.
                         </h2>
                     </div>
 
@@ -2000,6 +2604,7 @@
                 </div>
 
                 <div class="offers-grid">
+
                     <article
                         class="offer-card"
                         data-reveal
@@ -2103,7 +2708,9 @@
              EXPERIÊNCIA
         ==================================================== -->
 
-        <section class="experience">
+        <section
+            class="experience"
+        >
             <div class="container">
                 <div data-reveal>
                     <p class="eyebrow">
@@ -2111,14 +2718,14 @@
                     </p>
 
                     <h2 class="section-title">
-                        Não precisa terminar
-                        na tela do delivery.
+                        A experiência também
+                        acontece à mesa.
                     </h2>
 
                     <p class="section-copy">
-                        O Sushi Life também recebe clientes
-                        presencialmente e realiza música ao vivo
-                        em datas especiais.
+                        O Sushi Life recebe clientes presencialmente
+                        em Matozinhos e também oferece pedidos online
+                        para quem prefere aproveitar em casa.
                     </p>
                 </div>
 
@@ -2141,8 +2748,8 @@
                             </span>
 
                             <h3>
-                                Uma mesa também pode ser
-                                o destino.
+                                Para aproveitar
+                                no local.
                             </h3>
                         </div>
                     </article>
@@ -2265,16 +2872,17 @@
             <div class="container visit-grid">
                 <div data-reveal>
                     <p class="eyebrow">
-                        Agora é com você
+                        Visite ou peça
                     </p>
 
                     <h2 class="section-title">
-                        Pedido ou mesa?
+                        Escolha como aproveitar
+                        o Sushi Life.
                     </h2>
 
                     <p class="section-copy">
-                        Consulte o cardápio online para fazer
-                        seu pedido ou veja como chegar ao Sushi Life
+                        Consulte o cardápio, faça seu pedido online
+                        ou veja como chegar ao Sushi Life
                         em Matozinhos.
                     </p>
 
@@ -2402,6 +3010,7 @@
                     allowfullscreen
                 ></iframe>
             </div>
+
         </section>
     </main>
 
@@ -2410,7 +3019,9 @@
          FOOTER // ASSINATURA LCOM
     ======================================================== -->
 
-    <footer class="footer">
+    <footer
+        class="footer"
+    >
         <div class="container footer-inner">
             <p class="footer-copyright">
                 © <span id="year"></span> Sushi Life.
@@ -2431,17 +3042,18 @@
             </p>
         </div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/pixi.js@8.19.0/dist/pixi.min.js"></script>
 
     <script>
         /* =====================================================
            OLLIM NOOB — JS
 
-           Apenas comportamento necessário para a V0.3:
+           Apenas comportamento necessário para a V0.4:
            - menu mobile
            - header no scroll
            - reveals
            - ano automático
+           - LCOM Brush Effect integrado ao Sushi Life
         ====================================================== */
 
 
@@ -2449,38 +3061,235 @@
            ELEMENTOS
         ====================================================== */
 
-        const body =
-            document.body;
+        const body = document.body;
 
         const header =
-            document.querySelector(
-                "#site-header"
-            );
+            document.querySelector("#site-header");
 
         const menuToggle =
-            document.querySelector(
-                "#menu-toggle"
-            );
+            document.querySelector("#menu-toggle");
 
         const navigation =
-            document.querySelector(
-                "#navigation"
-            );
+            document.querySelector("#navigation");
 
         const navLinks =
-            navigation.querySelectorAll(
-                "a"
-            );
+            navigation.querySelectorAll("a");
 
         const revealElements =
-            document.querySelectorAll(
-                "[data-reveal]"
-            );
+            document.querySelectorAll("[data-reveal]");
 
         const year =
+            document.querySelector("#year");
+
+
+
+        /* =====================================================
+           SUSHI CONSENT // PROTÓTIPO
+
+           IMPORTANTE:
+           - não carrega Analytics;
+           - não dispara rastreamento;
+           - apenas salva a preferência no localStorage.
+
+           Quando houver Analytics real, o carregamento do script
+           opcional deve acontecer somente após "accepted".
+        ====================================================== */
+
+        const sushiConsent =
             document.querySelector(
-                "#year"
+                "#sushi-consent"
             );
+
+        const sushiConsentPanel =
+            document.querySelector(
+                "#sushi-consent-panel"
+            );
+
+        const sushiConsentTrigger =
+            document.querySelector(
+                "#sushi-consent-trigger"
+            );
+
+        const sushiConsentAccept =
+            document.querySelector(
+                "#sushi-consent-accept"
+            );
+
+        const sushiConsentEssential =
+            document.querySelector(
+                "#sushi-consent-essential"
+            );
+
+        const SUSHI_CONSENT_KEY =
+            "sushiLifeConsentV01";
+
+
+        const getSushiConsentChoice =
+            () => {
+                try {
+                    return localStorage.getItem(
+                        SUSHI_CONSENT_KEY
+                    );
+                } catch (error) {
+                    return null;
+                }
+            };
+
+
+        const setSushiConsentChoice =
+            (choice) => {
+                try {
+                    localStorage.setItem(
+                        SUSHI_CONSENT_KEY,
+                        choice
+                    );
+                } catch (error) {
+                    /*
+                     * Sem problema:
+                     * o protótipo continua funcionando mesmo se
+                     * o navegador bloquear armazenamento local.
+                     */
+                }
+            };
+
+
+        const setSushiConsentOpen =
+            (open) => {
+                if (
+                    !sushiConsent ||
+                    !sushiConsentTrigger
+                ) {
+                    return;
+                }
+
+
+                sushiConsent.classList.toggle(
+                    "is-open",
+                    open
+                );
+
+
+                sushiConsentTrigger.setAttribute(
+                    "aria-expanded",
+                    String(open)
+                );
+            };
+
+
+        const updateSushiConsentState =
+            () => {
+                if (
+                    !sushiConsent
+                ) {
+                    return;
+                }
+
+
+                const choice =
+                    getSushiConsentChoice();
+
+
+                sushiConsent.classList.toggle(
+                    "has-choice",
+                    Boolean(choice)
+                );
+
+
+                /*
+                 * Primeira visita:
+                 * abrimos automaticamente depois de um pequeno delay
+                 * para não competir com o carregamento do hero.
+                 */
+                if (
+                    !choice
+                ) {
+                    window.setTimeout(
+                        () => {
+                            setSushiConsentOpen(
+                                true
+                            );
+                        },
+                        850
+                    );
+                }
+            };
+
+
+        sushiConsentTrigger?.addEventListener(
+            "click",
+            () => {
+                const isOpen =
+                    sushiConsent?.classList.contains(
+                        "is-open"
+                    );
+
+
+                setSushiConsentOpen(
+                    !isOpen
+                );
+            }
+        );
+
+
+        sushiConsentAccept?.addEventListener(
+            "click",
+            () => {
+                setSushiConsentChoice(
+                    "accepted"
+                );
+
+
+                sushiConsent?.classList.add(
+                    "has-choice"
+                );
+
+
+                setSushiConsentOpen(
+                    false
+                );
+            }
+        );
+
+
+        sushiConsentEssential?.addEventListener(
+            "click",
+            () => {
+                setSushiConsentChoice(
+                    "essential"
+                );
+
+
+                sushiConsent?.classList.add(
+                    "has-choice"
+                );
+
+
+                setSushiConsentOpen(
+                    false
+                );
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            (event) => {
+                if (
+                    event.key === "Escape" &&
+                    sushiConsent?.classList.contains(
+                        "is-open"
+                    )
+                ) {
+                    setSushiConsentOpen(
+                        false
+                    );
+                }
+            }
+        );
+
+
+        updateSushiConsentState();
+
 
 
         /* =====================================================
@@ -2578,6 +3387,2276 @@
         );
 
 
+
+
+        /* =====================================================
+           LCOM BRUSH EFFECT // INTEGRADO AO SUSHI LIFE
+
+           Base:
+           experimento refinado separadamente para o LCOM Labs.
+
+           Estrutura visual:
+           - coreGraphics = massa contínua da tinta;
+           - bristleGraphics = cerdas e falhas;
+           - pigmentGraphics = gotas de tinta;
+           - Catmull-Rom = trajetória suavizada;
+           - velocidade = influencia espessura;
+           - fade = desaparecimento rápido e suave.
+
+           Ajustes técnicos desta integração:
+           - apenas Pointer Events (mouse, touch e caneta);
+           - rawPoints limitados para evitar crescimento infinito;
+           - canvas continua em viewport;
+           - mundo Pixi usa coordenadas globais do documento.
+        ====================================================== */
+
+        const BRUSH = {
+            /*
+             * Opacidade global do rastro.
+             * 1.00 = original
+             * 0.40 = 40% da intensidade original
+             */
+            globalOpacity: 0.30,
+
+            /*
+             * Qualidade visual deliberadamente conservadora.
+             * O objetivo aqui é o site continuar leve até em
+             * aparelho fraco e sob uso "maluco" do efeito.
+             */
+            maxDpr: 1.15,
+
+            baseWidthDesktop: 54,
+            baseWidthMobile: 38,
+
+            fadeMs: 650,
+            holdMs: 70,
+            breakMs: 120,
+
+            numBristlesDesktop: 20,
+            numBristlesMobile: 14,
+
+            pigmentChance: 0.72,
+            pigmentsPerPointDesktop: 5,
+            pigmentsPerPointMobile: 3,
+
+            rogueChance: 0.22,
+
+            /*
+             * Performance guard.
+             */
+            maxRawPointsDesktop: 72,
+            maxRawPointsMobile: 52,
+
+            maxSmoothPointsDesktop: 220,
+            maxSmoothPointsMobile: 150,
+
+            maxPigmentsTotalDesktop: 220,
+            maxPigmentsTotalMobile: 120,
+
+            maxRoguesTotalDesktop: 44,
+            maxRoguesTotalMobile: 24,
+
+            maxLiveStrokes: 2,
+
+            /*
+             * Eventos de mouse/touch podem chegar acima de 100 Hz.
+             * Não precisamos processar todos.
+             */
+            minInputIntervalDesktop: 12,
+            minInputIntervalMobile: 18,
+
+            /*
+             * Pixi também não precisa renderizar a 60/120 FPS
+             * para um rastro que desaparece rapidamente.
+             */
+            maxFpsDesktop: 45,
+            maxFpsMobile: 30
+        };
+
+
+        const brushHost =
+            document.querySelector(
+                "#brush-field"
+            );
+
+        const brushReducedMotion =
+            window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            );
+
+
+        const brushState = {
+            app: null,
+
+            world: null,
+
+            coreGraphics: null,
+            bristleGraphics: null,
+            pigmentGraphics: null,
+
+            currentStroke: null,
+            strokes: [],
+
+            lastInputTime: 0,
+
+            pointerPos: {
+                x: 0,
+                y: 0
+            },
+
+            smoothPos: {
+                x: 0,
+                y: 0
+            },
+
+            /*
+             * No mobile, o navegador pode assumir o gesto vertical
+             * e reduzir/interromper touchmove durante o scroll.
+             * Guardamos a posição do dedo na viewport para continuar
+             * o brush usando o próprio evento de scroll.
+             */
+            touchClientPos: {
+                x: 0,
+                y: 0
+            },
+
+            touchActive: false,
+
+            lastScrollX:
+                window.scrollX,
+
+            lastScrollY:
+                window.scrollY,
+
+            ready: false
+        };
+
+
+        const isBrushMobile =
+            () => (
+                window.innerWidth <=
+                759
+            );
+
+
+        const getBrushLimits =
+            () => {
+                const mobile =
+                    isBrushMobile();
+
+
+                return {
+                    numBristles:
+                        mobile
+                            ? BRUSH.numBristlesMobile
+                            : BRUSH.numBristlesDesktop,
+
+                    pigmentsPerPoint:
+                        mobile
+                            ? BRUSH.pigmentsPerPointMobile
+                            : BRUSH.pigmentsPerPointDesktop,
+
+                    maxRawPoints:
+                        mobile
+                            ? BRUSH.maxRawPointsMobile
+                            : BRUSH.maxRawPointsDesktop,
+
+                    maxSmoothPoints:
+                        mobile
+                            ? BRUSH.maxSmoothPointsMobile
+                            : BRUSH.maxSmoothPointsDesktop,
+
+                    maxPigmentsTotal:
+                        mobile
+                            ? BRUSH.maxPigmentsTotalMobile
+                            : BRUSH.maxPigmentsTotalDesktop,
+
+                    maxRoguesTotal:
+                        mobile
+                            ? BRUSH.maxRoguesTotalMobile
+                            : BRUSH.maxRoguesTotalDesktop,
+
+                    minInputInterval:
+                        mobile
+                            ? BRUSH.minInputIntervalMobile
+                            : BRUSH.minInputIntervalDesktop,
+
+                    maxFps:
+                        mobile
+                            ? BRUSH.maxFpsMobile
+                            : BRUSH.maxFpsDesktop
+                };
+            };
+
+
+        /* =====================================================
+           HELPERS
+        ====================================================== */
+
+        const lerp =
+            (
+                start,
+                end,
+                amount
+            ) => (
+                start +
+                (
+                    end -
+                    start
+                ) *
+                amount
+            );
+
+
+        const catmullRom =
+            (
+                p0,
+                p1,
+                p2,
+                p3,
+                t
+            ) => {
+                const v0 =
+                    (
+                        p2 -
+                        p0
+                    ) *
+                    0.5;
+
+                const v1 =
+                    (
+                        p3 -
+                        p1
+                    ) *
+                    0.5;
+
+                const t2 =
+                    t *
+                    t;
+
+                const t3 =
+                    t2 *
+                    t;
+
+                return (
+                    (
+                        2 *
+                        p1 -
+                        2 *
+                        p2 +
+                        v0 +
+                        v1
+                    ) *
+                    t3 +
+                    (
+                        -3 *
+                        p1 +
+                        3 *
+                        p2 -
+                        2 *
+                        v0 -
+                        v1
+                    ) *
+                    t2 +
+                    v0 *
+                    t +
+                    p1
+                );
+            };
+
+
+        const getDocumentPointer =
+            (event) => {
+                /*
+                 * Pointer/mouse usa pageX/pageY.
+                 * TouchEvent guarda a coordenada dentro de touches.
+                 */
+                const touch =
+                    event.touches?.[0] ||
+                    event.changedTouches?.[0] ||
+                    null;
+
+
+                if (
+                    touch
+                ) {
+                    return {
+                        x:
+                            touch.pageX,
+
+                        y:
+                            touch.pageY
+                    };
+                }
+
+
+                return {
+                    x:
+                        Number.isFinite(
+                            event.pageX
+                        )
+                            ? event.pageX
+                            : event.clientX +
+                                window.scrollX,
+
+                    y:
+                        Number.isFinite(
+                            event.pageY
+                        )
+                            ? event.pageY
+                            : event.clientY +
+                                window.scrollY
+                };
+            };
+
+
+        const syncCamera =
+            () => {
+                if (
+                    brushState.world
+                ) {
+                    brushState.world.position.set(
+                        -window.scrollX,
+                        -window.scrollY
+                    );
+                }
+            };
+
+
+        /* =====================================================
+           PIXI INIT
+        ====================================================== */
+
+        const initBrush =
+            async () => {
+                if (
+                    !brushHost ||
+                    !window.PIXI ||
+                    brushReducedMotion.matches
+                ) {
+                    return;
+                }
+
+                try {
+                    const app =
+                        new PIXI.Application();
+
+                    await app.init({
+                        resizeTo: window,
+
+                        backgroundAlpha: 0,
+
+                        antialias: true,
+
+                        autoDensity: true,
+
+                        resolution:
+                            Math.min(
+                                window.devicePixelRatio ||
+                                    1,
+                                BRUSH.maxDpr
+                            ),
+
+                        preference:
+                            "webgl"
+                    });
+
+
+                    brushHost.appendChild(
+                        app.canvas
+                    );
+
+
+                    const world =
+                        new PIXI.Container();
+
+
+                    const coreGraphics =
+                        new PIXI.Graphics();
+
+
+                    const bristleGraphics =
+                        new PIXI.Graphics();
+
+
+                    const pigmentGraphics =
+                        new PIXI.Graphics();
+
+
+                    world.addChild(
+                        coreGraphics
+                    );
+
+
+                    world.addChild(
+                        bristleGraphics
+                    );
+
+
+                    world.addChild(
+                        pigmentGraphics
+                    );
+
+
+                    app.stage.addChild(
+                        world
+                    );
+
+
+                    brushState.app =
+                        app;
+
+
+                    brushState.world =
+                        world;
+
+
+                    brushState.coreGraphics =
+                        coreGraphics;
+
+
+                    brushState.bristleGraphics =
+                        bristleGraphics;
+
+
+                    brushState.pigmentGraphics =
+                        pigmentGraphics;
+
+
+                    brushState.ready =
+                        true;
+
+
+                    syncCamera();
+
+
+                    app.ticker.maxFPS =
+                        getBrushLimits()
+                            .maxFps;
+
+
+                    app.ticker.add(
+                        updateBrush
+                    );
+                } catch (error) {
+                    console.warn(
+                        "Sushi Life: LCOM Brush Effect indisponível.",
+                        error
+                    );
+                }
+            };
+
+
+        /* =====================================================
+           BRISTLE PROFILE
+        ====================================================== */
+
+        const createBristleProfile =
+            () => {
+                const count =
+                    getBrushLimits()
+                        .numBristles;
+
+                const profile =
+                    [];
+
+
+                for (
+                    let index = 0;
+                    index < count;
+                    index += 1
+                ) {
+                    const normalized =
+                        (
+                            index /
+                            (
+                                count -
+                                1
+                            )
+                        ) *
+                        2 -
+                        1;
+
+
+                    profile.push({
+                        offsetFactor:
+                            normalized *
+                            0.52,
+
+                        width:
+                            0.8 +
+                            Math.random() *
+                            2.2,
+
+                        alpha:
+                            0.25 +
+                            Math.random() *
+                            0.55,
+
+                        seed:
+                            Math.random() *
+                            1000
+                    });
+                }
+
+
+                return profile;
+            };
+
+
+        /* =====================================================
+           STROKE
+        ====================================================== */
+
+        const createStroke =
+            (
+                x,
+                y,
+                now
+            ) => {
+                const isMobile =
+                    window.innerWidth <=
+                    759;
+
+
+                const baseWidth =
+                    isMobile
+                        ? BRUSH.baseWidthMobile
+                        : BRUSH.baseWidthDesktop;
+
+
+                const stroke = {
+                    baseWidth,
+
+                    bristles:
+                        createBristleProfile(),
+
+                    rawPoints: [
+                        {
+                            x,
+                            y,
+                            speed: 0
+                        }
+                    ],
+
+                    smoothPoints: [],
+
+                    pigments: [],
+                    rogues: [],
+
+                    releasedAt: null
+                };
+
+
+                brushState.strokes.push(
+                    stroke
+                );
+
+
+                brushState.currentStroke =
+                    stroke;
+
+
+                if (
+                    brushState.strokes.length >
+                    BRUSH.maxLiveStrokes
+                ) {
+                    brushState.strokes.shift();
+                }
+
+
+                return stroke;
+            };
+
+
+        const finishStroke =
+            (
+                stroke,
+                now
+            ) => {
+                if (
+                    stroke &&
+                    stroke.releasedAt ===
+                        null
+                ) {
+                    stroke.releasedAt =
+                        now;
+                }
+            };
+
+
+        /* =====================================================
+           PATH SMOOTHING
+        ====================================================== */
+
+        const rebuildSmoothPoints =
+            (stroke) => {
+                const points =
+                    stroke.rawPoints;
+
+
+                if (
+                    points.length <
+                    2
+                ) {
+                    stroke.smoothPoints =
+                        [];
+
+                    return;
+                }
+
+
+                const smooth =
+                    [];
+
+
+                for (
+                    let index = 0;
+                    index <
+                        points.length -
+                            1;
+                    index += 1
+                ) {
+                    const p0 =
+                        points[
+                            Math.max(
+                                0,
+                                index -
+                                    1
+                            )
+                        ];
+
+
+                    const p1 =
+                        points[
+                            index
+                        ];
+
+
+                    const p2 =
+                        points[
+                            index +
+                            1
+                        ];
+
+
+                    const p3 =
+                        points[
+                            Math.min(
+                                points.length -
+                                    1,
+                                index +
+                                    2
+                            )
+                        ];
+
+
+                    const steps =
+                        Math.max(
+                            2,
+                            Math.floor(
+                                Math.hypot(
+                                    p2.x -
+                                        p1.x,
+
+                                    p2.y -
+                                        p1.y
+                                ) /
+                                3
+                            )
+                        );
+
+
+                    for (
+                        let step = 0;
+                        step <
+                            steps;
+                        step += 1
+                    ) {
+                        const t =
+                            step /
+                            steps;
+
+
+                        smooth.push({
+                            x:
+                                catmullRom(
+                                    p0.x,
+                                    p1.x,
+                                    p2.x,
+                                    p3.x,
+                                    t
+                                ),
+
+                            y:
+                                catmullRom(
+                                    p0.y,
+                                    p1.y,
+                                    p2.y,
+                                    p3.y,
+                                    t
+                                ),
+
+                            speed:
+                                lerp(
+                                    p1.speed,
+                                    p2.speed,
+                                    t
+                                )
+                        });
+                    }
+                }
+
+
+                smooth.push(
+                    points[
+                        points.length -
+                            1
+                    ]
+                );
+
+
+                const maxSmoothPoints =
+                    getBrushLimits()
+                        .maxSmoothPoints;
+
+
+                if (
+                    smooth.length >
+                    maxSmoothPoints
+                ) {
+                    smooth.splice(
+                        0,
+                        smooth.length -
+                            maxSmoothPoints
+                    );
+                }
+
+
+                stroke.smoothPoints =
+                    smooth;
+            };
+
+
+        /* =====================================================
+           PIGMENTS + ROGUES
+        ====================================================== */
+
+        const spawnPigmentsAndRogues =
+            (stroke) => {
+                const smooth =
+                    stroke.smoothPoints;
+
+
+                if (
+                    smooth.length <
+                    2
+                ) {
+                    return;
+                }
+
+
+                const lastPoint =
+                    smooth[
+                        smooth.length -
+                            1
+                    ];
+
+
+                const previousPoint =
+                    smooth[
+                        Math.max(
+                            0,
+                            smooth.length -
+                                3
+                        )
+                    ];
+
+
+                const angle =
+                    Math.atan2(
+                        lastPoint.y -
+                            previousPoint.y,
+
+                        lastPoint.x -
+                            previousPoint.x
+                    );
+
+
+                const normalX =
+                    -Math.sin(
+                        angle
+                    );
+
+
+                const normalY =
+                    Math.cos(
+                        angle
+                    );
+
+
+                if (
+                    Math.random() <
+                    BRUSH.pigmentChance
+                ) {
+                    for (
+                        let index = 0;
+                        index <
+                            getBrushLimits()
+                                .pigmentsPerPoint;
+                        index += 1
+                    ) {
+                        const side =
+                            Math.random() <
+                            0.5
+                                ? -1
+                                : 1;
+
+
+                        const spread =
+                            (
+                                Math.random() *
+                                0.9 +
+                                0.1
+                            ) *
+                            stroke.baseWidth *
+                            side;
+
+
+                        stroke.pigments.push({
+                            x:
+                                lastPoint.x +
+                                normalX *
+                                spread +
+                                (
+                                    Math.random() -
+                                    0.5
+                                ) *
+                                10,
+
+                            y:
+                                lastPoint.y +
+                                normalY *
+                                spread +
+                                (
+                                    Math.random() -
+                                    0.5
+                                ) *
+                                10,
+
+                            radius:
+                                Math.random() <
+                                0.8
+                                    ? (
+                                        0.4 +
+                                        Math.random() *
+                                        1.3
+                                    )
+                                    : (
+                                        1.5 +
+                                        Math.random() *
+                                        2.8
+                                    ),
+
+                            alpha:
+                                0.18 +
+                                Math.random() *
+                                0.6
+                        });
+                    }
+                }
+
+
+                if (
+                    Math.random() <
+                    BRUSH.rogueChance
+                ) {
+                    const side =
+                        Math.random() <
+                        0.5
+                            ? -1
+                            : 1;
+
+
+                    const offset =
+                        stroke.baseWidth *
+                        (
+                            0.48 +
+                            Math.random() *
+                            0.28
+                        ) *
+                        side;
+
+
+                    const length =
+                        8 +
+                        Math.random() *
+                        20;
+
+
+                    const rogueAngle =
+                        angle +
+                        (
+                            Math.random() -
+                            0.5
+                        ) *
+                        0.3;
+
+
+                    const startX =
+                        lastPoint.x +
+                        normalX *
+                        offset;
+
+
+                    const startY =
+                        lastPoint.y +
+                        normalY *
+                        offset;
+
+
+                    stroke.rogues.push({
+                        x1:
+                            startX,
+
+                        y1:
+                            startY,
+
+                        x2:
+                            startX +
+                            Math.cos(
+                                rogueAngle
+                            ) *
+                            length,
+
+                        y2:
+                            startY +
+                            Math.sin(
+                                rogueAngle
+                            ) *
+                            length,
+
+                        width:
+                            0.5 +
+                            Math.random() *
+                            1.1,
+
+                        alpha:
+                            0.2 +
+                            Math.random() *
+                            0.4
+                    });
+                }
+
+
+                const limits =
+                    getBrushLimits();
+
+
+                if (
+                    stroke.pigments.length >
+                    limits.maxPigmentsTotal
+                ) {
+                    stroke.pigments.splice(
+                        0,
+
+                        stroke.pigments.length -
+                            limits.maxPigmentsTotal
+                    );
+                }
+
+
+                if (
+                    stroke.rogues.length >
+                    limits.maxRoguesTotal
+                ) {
+                    stroke.rogues.splice(
+                        0,
+
+                        stroke.rogues.length -
+                            limits.maxRoguesTotal
+                    );
+                }
+            };
+
+
+        /* =====================================================
+           ADD POINT
+        ====================================================== */
+
+        const addPointToStroke =
+            (
+                stroke,
+                x,
+                y
+            ) => {
+                const points =
+                    stroke.rawPoints;
+
+
+                const last =
+                    points[
+                        points.length -
+                            1
+                    ];
+
+
+                const distance =
+                    Math.hypot(
+                        x -
+                            last.x,
+
+                        y -
+                            last.y
+                    );
+
+
+                if (
+                    distance <
+                    3
+                ) {
+                    return;
+                }
+
+
+                const speed =
+                    Math.min(
+                        distance /
+                        12,
+                        1.8
+                    );
+
+
+                points.push({
+                    x,
+                    y,
+                    speed
+                });
+
+
+                /*
+                 * Limite de histórico:
+                 * o efeito vive menos de 1s, então não faz sentido
+                 * reconstruir uma trajetória infinita.
+                 */
+                const limits =
+                    getBrushLimits();
+
+
+                if (
+                    points.length >
+                    limits.maxRawPoints
+                ) {
+                    points.splice(
+                        0,
+
+                        points.length -
+                            limits.maxRawPoints
+                    );
+                }
+
+
+                rebuildSmoothPoints(
+                    stroke
+                );
+
+
+                spawnPigmentsAndRogues(
+                    stroke
+                );
+            };
+
+
+        /* =====================================================
+           DRAW
+        ====================================================== */
+
+        const drawStroke =
+            (
+                stroke,
+                globalAlpha
+            ) => {
+                const points =
+                    stroke.smoothPoints.length >
+                    0
+                        ? stroke.smoothPoints
+                        : stroke.rawPoints;
+
+
+                if (
+                    points.length <
+                    2
+                ) {
+                    return;
+                }
+
+
+                const coreGraphics =
+                    brushState.coreGraphics;
+
+
+                const bristleGraphics =
+                    brushState.bristleGraphics;
+
+
+                const pigmentGraphics =
+                    brushState.pigmentGraphics;
+
+
+                const total =
+                    points.length -
+                    1;
+
+
+                /* =================================================
+                   1. CORPO DENSO
+                ================================================= */
+
+                const leftSide =
+                    [];
+
+
+                const rightSide =
+                    [];
+
+
+                for (
+                    let index = 0;
+                    index <=
+                        total;
+                    index += 1
+                ) {
+                    const point =
+                        points[
+                            index
+                        ];
+
+
+                    const previous =
+                        points[
+                            Math.max(
+                                0,
+                                index -
+                                    1
+                            )
+                        ];
+
+
+                    const next =
+                        points[
+                            Math.min(
+                                total,
+                                index +
+                                    1
+                            )
+                        ];
+
+
+                    const dx =
+                        next.x -
+                        previous.x;
+
+
+                    const dy =
+                        next.y -
+                        previous.y;
+
+
+                    const length =
+                        Math.hypot(
+                            dx,
+                            dy
+                        ) || 1;
+
+
+                    const normalX =
+                        -dy /
+                        length;
+
+
+                    const normalY =
+                        dx /
+                        length;
+
+
+                    const normalized =
+                        index /
+                        total;
+
+
+                    const envelope =
+                        Math.sin(
+                            normalized *
+                            Math.PI
+                        );
+
+
+                    const speedFactor =
+                        Math.max(
+                            0.6,
+                            1.2 -
+                                (
+                                    point.speed ||
+                                    0
+                                ) *
+                                0.3
+                        );
+
+
+                    const width =
+                        stroke.baseWidth *
+                        (
+                            0.35 +
+                            envelope *
+                            0.65
+                        ) *
+                        0.42 *
+                        speedFactor;
+
+
+                    leftSide.push({
+                        x:
+                            point.x +
+                            normalX *
+                            width,
+
+                        y:
+                            point.y +
+                            normalY *
+                            width
+                    });
+
+
+                    rightSide.push({
+                        x:
+                            point.x -
+                            normalX *
+                            width,
+
+                        y:
+                            point.y -
+                            normalY *
+                            width
+                    });
+                }
+
+
+                coreGraphics.beginPath();
+
+
+                coreGraphics.moveTo(
+                    leftSide[0].x,
+                    leftSide[0].y
+                );
+
+
+                for (
+                    let index = 1;
+                    index <
+                        leftSide.length;
+                    index += 1
+                ) {
+                    coreGraphics.lineTo(
+                        leftSide[
+                            index
+                        ].x,
+
+                        leftSide[
+                            index
+                        ].y
+                    );
+                }
+
+
+                for (
+                    let index =
+                        rightSide.length -
+                        1;
+                    index >= 0;
+                    index -= 1
+                ) {
+                    coreGraphics.lineTo(
+                        rightSide[
+                            index
+                        ].x,
+
+                        rightSide[
+                            index
+                        ].y
+                    );
+                }
+
+
+                coreGraphics.closePath();
+
+
+                coreGraphics.fill({
+                    color:
+                        0x2b160f,
+
+                    alpha:
+                        0.90 *
+                        globalAlpha
+                });
+
+
+
+
+                /* =================================================
+                   2. CERDAS
+                ================================================= */
+
+                stroke.bristles.forEach(
+                    (bristle) => {
+                        let previousX =
+                            null;
+
+                        let previousY =
+                            null;
+
+                        let hasPath =
+                            false;
+
+
+                        /*
+                         * Construímos todas as sublinhas da cerda
+                         * primeiro e aplicamos UMA única stroke().
+                         * Isso reduz drasticamente chamadas ao Pixi.
+                         */
+                        for (
+                            let index = 0;
+                            index <=
+                                total;
+                            index += 1
+                        ) {
+                            const point =
+                                points[
+                                    index
+                                ];
+
+
+                            const previous =
+                                points[
+                                    Math.max(
+                                        0,
+                                        index -
+                                            1
+                                    )
+                                ];
+
+
+                            const next =
+                                points[
+                                    Math.min(
+                                        total,
+                                        index +
+                                            1
+                                    )
+                                ];
+
+
+                            const dx =
+                                next.x -
+                                previous.x;
+
+
+                            const dy =
+                                next.y -
+                                previous.y;
+
+
+                            const length =
+                                Math.hypot(
+                                    dx,
+                                    dy
+                                ) || 1;
+
+
+                            const normalX =
+                                -dy /
+                                length;
+
+
+                            const normalY =
+                                dx /
+                                length;
+
+
+                            const normalized =
+                                index /
+                                total;
+
+
+                            const envelope =
+                                Math.sin(
+                                    normalized *
+                                    Math.PI
+                                );
+
+
+                            const noise =
+                                Math.sin(
+                                    bristle.seed +
+                                    index *
+                                    0.35
+                                ) *
+                                1.6;
+
+
+                            const strokeWidth =
+                                stroke.baseWidth *
+                                (
+                                    0.3 +
+                                    envelope *
+                                    0.7
+                                );
+
+
+                            const offset =
+                                bristle.offsetFactor *
+                                strokeWidth +
+                                noise;
+
+
+                            const x =
+                                point.x +
+                                normalX *
+                                offset;
+
+
+                            const y =
+                                point.y +
+                                normalY *
+                                offset;
+
+
+                            if (
+                                Math.sin(
+                                    bristle.seed +
+                                    index *
+                                    0.8
+                                ) >
+                                0.85
+                            ) {
+                                previousX =
+                                    null;
+
+                                previousY =
+                                    null;
+
+                                continue;
+                            }
+
+
+                            if (
+                                previousX ===
+                                null
+                            ) {
+                                bristleGraphics
+                                    .moveTo(
+                                        x,
+                                        y
+                                    );
+                            } else {
+                                bristleGraphics
+                                    .lineTo(
+                                        x,
+                                        y
+                                    );
+
+                                hasPath =
+                                    true;
+                            }
+
+
+                            previousX =
+                                x;
+
+
+                            previousY =
+                                y;
+                        }
+
+
+                        if (
+                            hasPath
+                        ) {
+                            bristleGraphics.stroke({
+                                width:
+                                    bristle.width,
+
+                                color:
+                                    0x3a1c12,
+
+                                alpha:
+                                    bristle.alpha *
+                                    globalAlpha,
+
+                                cap:
+                                    "round"
+                            });
+                        }
+                    }
+                );
+
+
+                /* =================================================
+                   3. FIOS SOLTOS
+                ================================================= */
+
+                stroke.rogues.forEach(
+                    (rogue) => {
+                        bristleGraphics
+                            .moveTo(
+                                rogue.x1,
+                                rogue.y1
+                            )
+                            .lineTo(
+                                rogue.x2,
+                                rogue.y2
+                            )
+                            .stroke({
+                                width:
+                                    rogue.width,
+
+                                color:
+                                    0x3a1c12,
+
+                                alpha:
+                                    rogue.alpha *
+                                    globalAlpha,
+
+                                cap:
+                                    "round"
+                            });
+                    }
+                );
+
+
+                /* =================================================
+                   4. GOTAS
+                ================================================= */
+
+                stroke.pigments.forEach(
+                    (pigment) => {
+                        pigmentGraphics
+                            .circle(
+                                pigment.x,
+                                pigment.y,
+                                pigment.radius
+                            )
+                            .fill({
+                                color:
+                                    0x512719,
+
+                                alpha:
+                                    pigment.alpha *
+                                    globalAlpha
+                            });
+                    }
+                );
+            };
+
+
+        /* =====================================================
+           UPDATE
+        ====================================================== */
+
+        const updateBrush =
+            () => {
+                const now =
+                    performance.now();
+
+
+                brushState.smoothPos.x =
+                    lerp(
+                        brushState.smoothPos.x,
+                        brushState.pointerPos.x,
+                        0.45
+                    );
+
+
+                brushState.smoothPos.y =
+                    lerp(
+                        brushState.smoothPos.y,
+                        brushState.pointerPos.y,
+                        0.45
+                    );
+
+
+                if (
+                    brushState.currentStroke &&
+                    brushState.currentStroke.releasedAt ===
+                        null &&
+                    now -
+                        brushState.lastInputTime >
+                        BRUSH.breakMs
+                ) {
+                    finishStroke(
+                        brushState.currentStroke,
+                        now
+                    );
+
+
+                    brushState.currentStroke =
+                        null;
+                }
+
+
+                brushState.coreGraphics.clear();
+
+                brushState.bristleGraphics.clear();
+
+                brushState.pigmentGraphics.clear();
+
+
+                brushState.strokes =
+                    brushState.strokes.filter(
+                        (stroke) => {
+                            let alpha =
+                                1;
+
+
+                            if (
+                                stroke.releasedAt !==
+                                null
+                            ) {
+                                const elapsed =
+                                    now -
+                                    stroke.releasedAt;
+
+
+                                if (
+                                    elapsed >
+                                    BRUSH.holdMs
+                                ) {
+                                    alpha =
+                                        1 -
+                                        (
+                                            elapsed -
+                                            BRUSH.holdMs
+                                        ) /
+                                        BRUSH.fadeMs;
+                                }
+                            }
+
+
+                            if (
+                                alpha <= 0
+                            ) {
+                                return false;
+                            }
+
+
+                            drawStroke(
+                                stroke,
+                                Math.max(
+                                    0,
+                                    alpha
+                                ) *
+                                BRUSH.globalOpacity
+                            );
+
+
+                            return true;
+                        }
+                    );
+            };
+
+
+        /* =====================================================
+           INPUT // DESKTOP + MOBILE
+
+           No desktop:
+           - Pointer Events cuidam de mouse e caneta.
+
+           No mobile:
+           - touchmove é usado diretamente.
+
+           Motivo:
+           em Android/iOS, quando o navegador assume o gesto para
+           rolar a página, o pointermove pode ser cancelado após o
+           primeiro contato. Isso fazia o brush parecer apenas um
+           "clique".
+
+           O touchmove cuida do gesto quando o navegador o entrega.
+           Durante pan vertical nativo, o evento de scroll completa
+           a trajetória usando a última posição conhecida do dedo.
+           Assim o rastro acompanha a rolagem sem bloquear o scroll.
+        ====================================================== */
+
+        let activeTouch =
+            false;
+
+
+        const paintInputPoint =
+            (
+                point,
+                now
+            ) => {
+                brushState.pointerPos =
+                    point;
+
+
+                const minInterval =
+                    getBrushLimits()
+                        .minInputInterval;
+
+
+                /*
+                 * Atualizamos a posição sempre,
+                 * mas só geramos geometria numa frequência útil.
+                 */
+                if (
+                    now -
+                        brushState.lastInputTime <
+                    minInterval
+                ) {
+                    return;
+                }
+
+
+                if (
+                    !brushState.currentStroke ||
+                    brushState.currentStroke.releasedAt !==
+                        null
+                ) {
+                    createStroke(
+                        point.x,
+                        point.y,
+                        now
+                    );
+                } else {
+                    addPointToStroke(
+                        brushState.currentStroke,
+                        point.x,
+                        point.y
+                    );
+                }
+
+
+                brushState.lastInputTime =
+                    now;
+            };
+
+
+        const startInputPoint =
+            (
+                point,
+                now
+            ) => {
+                brushState.pointerPos =
+                    point;
+
+
+                brushState.smoothPos = {
+                    ...point
+                };
+
+
+                if (
+                    brushState.currentStroke
+                ) {
+                    finishStroke(
+                        brushState.currentStroke,
+                        now
+                    );
+                }
+
+
+                createStroke(
+                    point.x,
+                    point.y,
+                    now
+                );
+
+
+                brushState.lastInputTime =
+                    now;
+            };
+
+
+        const finishInput =
+            () => {
+                if (
+                    brushState.currentStroke
+                ) {
+                    finishStroke(
+                        brushState.currentStroke,
+                        performance.now()
+                    );
+
+
+                    brushState.currentStroke =
+                        null;
+                }
+            };
+
+
+        /* =====================================================
+           POINTER // MOUSE + CANETA
+        ====================================================== */
+
+        const handlePointerStart =
+            (event) => {
+                if (
+                    !brushState.ready ||
+                    brushReducedMotion.matches ||
+                    event.pointerType ===
+                        "touch"
+                ) {
+                    return;
+                }
+
+
+                startInputPoint(
+                    getDocumentPointer(
+                        event
+                    ),
+                    performance.now()
+                );
+            };
+
+
+        const handlePointerMove =
+            (event) => {
+                if (
+                    !brushState.ready ||
+                    brushReducedMotion.matches ||
+                    event.pointerType ===
+                        "touch"
+                ) {
+                    return;
+                }
+
+
+                paintInputPoint(
+                    getDocumentPointer(
+                        event
+                    ),
+                    performance.now()
+                );
+            };
+
+
+        const handlePointerEnd =
+            (event) => {
+                if (
+                    event.pointerType ===
+                    "touch"
+                ) {
+                    return;
+                }
+
+
+                finishInput();
+            };
+
+
+        /* =====================================================
+           TOUCH // CELULAR + TABLET
+        ====================================================== */
+
+        const handleTouchStart =
+            (event) => {
+                if (
+                    !brushState.ready ||
+                    brushReducedMotion.matches ||
+                    !event.touches.length
+                ) {
+                    return;
+                }
+
+
+                const touch =
+                    event.touches[0];
+
+
+                activeTouch =
+                    true;
+
+
+                brushState.touchActive =
+                    true;
+
+
+                brushState.touchClientPos = {
+                    x:
+                        touch.clientX,
+
+                    y:
+                        touch.clientY
+                };
+
+
+                brushState.lastScrollX =
+                    window.scrollX;
+
+
+                brushState.lastScrollY =
+                    window.scrollY;
+
+
+                startInputPoint(
+                    getDocumentPointer(
+                        event
+                    ),
+                    performance.now()
+                );
+            };
+
+
+        const handleTouchMove =
+            (event) => {
+                if (
+                    !brushState.ready ||
+                    brushReducedMotion.matches ||
+                    !activeTouch ||
+                    !event.touches.length
+                ) {
+                    return;
+                }
+
+
+                const touch =
+                    event.touches[0];
+
+
+                brushState.touchClientPos = {
+                    x:
+                        touch.clientX,
+
+                    y:
+                        touch.clientY
+                };
+
+
+                paintInputPoint(
+                    getDocumentPointer(
+                        event
+                    ),
+                    performance.now()
+                );
+            };
+
+
+        const handleTouchEnd =
+            () => {
+                activeTouch =
+                    false;
+
+
+                brushState.touchActive =
+                    false;
+
+
+                finishInput();
+            };
+
+
+        window.addEventListener(
+            "pointerdown",
+            handlePointerStart,
+            {
+                passive: true
+            }
+        );
+
+
+        window.addEventListener(
+            "pointermove",
+            handlePointerMove,
+            {
+                passive: true
+            }
+        );
+
+
+        window.addEventListener(
+            "pointerup",
+            handlePointerEnd,
+            {
+                passive: true
+            }
+        );
+
+
+        window.addEventListener(
+            "pointercancel",
+            handlePointerEnd,
+            {
+                passive: true
+            }
+        );
+
+
+        /*
+         * passive:true mantém o scroll nativo livre.
+         * O brush apenas observa o gesto.
+         */
+        window.addEventListener(
+            "touchstart",
+            handleTouchStart,
+            {
+                passive: true
+            }
+        );
+
+
+        window.addEventListener(
+            "touchmove",
+            handleTouchMove,
+            {
+                passive: true
+            }
+        );
+
+
+        window.addEventListener(
+            "touchend",
+            handleTouchEnd,
+            {
+                passive: true
+            }
+        );
+
+
+        window.addEventListener(
+            "touchcancel",
+            handleTouchEnd,
+            {
+                passive: true
+            }
+        );
+
+
+        const handleBrushScroll =
+            () => {
+                syncCamera();
+
+
+                const currentScrollX =
+                    window.scrollX;
+
+
+                const currentScrollY =
+                    window.scrollY;
+
+
+                /*
+                 * Quando o browser assume um pan vertical, ele pode
+                 * parar de nos entregar touchmove com frequência.
+                 *
+                 * Mas o dedo continua praticamente no mesmo ponto
+                 * da VIEWPORT enquanto a página se move por baixo.
+                 *
+                 * Então reconstruímos a posição no DOCUMENTO:
+                 *
+                 * documentX = clientX + scrollX
+                 * documentY = clientY + scrollY
+                 *
+                 * Assim o rastro continua mesmo durante o scroll
+                 * nativo, sem preventDefault() e sem travar a página.
+                 */
+                if (
+                    brushState.touchActive &&
+                    brushState.ready &&
+                    !brushReducedMotion.matches
+                ) {
+                    const scrollChanged =
+                        currentScrollX !==
+                            brushState.lastScrollX ||
+                        currentScrollY !==
+                            brushState.lastScrollY;
+
+
+                    if (
+                        scrollChanged
+                    ) {
+                        paintInputPoint(
+                            {
+                                x:
+                                    brushState.touchClientPos.x +
+                                    currentScrollX,
+
+                                y:
+                                    brushState.touchClientPos.y +
+                                    currentScrollY
+                            },
+
+                            performance.now()
+                        );
+                    }
+                }
+
+
+                brushState.lastScrollX =
+                    currentScrollX;
+
+
+                brushState.lastScrollY =
+                    currentScrollY;
+            };
+
+
+        window.addEventListener(
+            "scroll",
+            handleBrushScroll,
+            {
+                passive: true
+            }
+        );
+
+
+        window.addEventListener(
+            "resize",
+            () => {
+                brushState.app?.renderer.resize(
+                    window.innerWidth,
+                    window.innerHeight
+                );
+
+
+                if (
+                    brushState.app
+                ) {
+                    brushState.app.ticker.maxFPS =
+                        getBrushLimits()
+                            .maxFps;
+                }
+
+
+                syncCamera();
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        /* =====================================================
+           REDUCED MOTION
+        ====================================================== */
+
+        brushReducedMotion.addEventListener(
+            "change",
+            (event) => {
+                if (
+                    !event.matches
+                ) {
+                    return;
+                }
+
+
+                brushState.strokes = [];
+
+                brushState.currentStroke = null;
+
+                brushState.coreGraphics?.clear();
+
+                brushState.bristleGraphics?.clear();
+
+                brushState.pigmentGraphics?.clear();
+            }
+        );
+
+
+        /* =====================================================
+           EMOJI CURSOR // DESKTOP
+
+           Troque apenas esta variável para testar:
+           "🥢" = hashi
+           "🍣" = sushi
+        ====================================================== */
+
+        const CURSOR_EMOJI =
+            "🥢";
+
+
+        const emojiCursor =
+            document.querySelector(
+                "#emoji-cursor"
+            );
+
+
+        const finePointer =
+            window.matchMedia(
+                "(pointer: fine)"
+            );
+
+
+        if (
+            emojiCursor
+        ) {
+            emojiCursor.textContent =
+                CURSOR_EMOJI;
+        }
+
+
+        const updateEmojiCursor =
+            (event) => {
+                if (
+                    !emojiCursor ||
+                    !finePointer.matches
+                ) {
+                    return;
+                }
+
+
+                emojiCursor.style.transform =
+                    `
+                        translate3d(
+                            ${event.clientX}px,
+                            ${event.clientY}px,
+                            0
+                        )
+                        translate(-50%, -50%)
+                    `;
+
+
+                emojiCursor.classList.add(
+                    "is-visible"
+                );
+            };
+
+
+        const hideEmojiCursor =
+            () => {
+                emojiCursor?.classList.remove(
+                    "is-visible"
+                );
+            };
+
+
+        if (
+            finePointer.matches
+        ) {
+            window.addEventListener(
+                "pointermove",
+                updateEmojiCursor,
+                {
+                    passive: true
+                }
+            );
+
+
+            document.documentElement.addEventListener(
+                "mouseleave",
+                hideEmojiCursor,
+                {
+                    passive: true
+                }
+            );
+        }
+
+
+        /* =====================================================
+           START
+        ====================================================== */
+
+        initBrush();
+
+
         /* =====================================================
            REVEALS
         ====================================================== */
@@ -2589,10 +5668,7 @@
 
         if (
             reducedMotion ||
-            !(
-                "IntersectionObserver"
-                in window
-            )
+            !("IntersectionObserver" in window)
         ) {
             revealElements.forEach(
                 (element) => {
@@ -2625,7 +5701,6 @@
                     },
                     {
                         threshold: 0.14,
-
                         rootMargin:
                             "0px 0px -40px 0px"
                     }
